@@ -3,11 +3,19 @@ import { PokemonCard } from "@/components/pokemon-card";
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import "@/components/globalvars";
 
 interface PokemonGridProps {
   pokemonList: any;
 }
+/*
+export async function getStaticProps() {
+  const db = await myDB.connect({
+    host: process.env.DB_HOST,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASS,
+  })
+  // ...
+}*/
 
 export function PokemonGrid({ pokemonList }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");
@@ -20,12 +28,10 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
       pokemon.name.toLowerCase().includes(searchText.toLowerCase())
     );
   };
-  globalThis.app = {
-    totalPokemon: pokemonList.length,
-    maxid: parseInt(pokemonList[pokemonList.length - 1].url.split("/")[6]),
-  };
-  Object.freeze(globalThis.app);
+  process.env.totalPokemon = pokemonList.length;
+  process.env.maxid = parseInt(pokemonList[pokemonList.length - 1].url.split("/")[6]);
   // save the filtered array of objects
+  console.log(process.env.totalPokemon);
   const filteredPokemonList = searchFilter(pokemonList);
   // show the filtered array to user
   return (
