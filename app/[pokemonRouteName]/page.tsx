@@ -44,27 +44,19 @@ export default async function PokemonPage({
   const pokemonchinesename = await getPokemonChineseName(
     pokemonObject.species.url
   );
-
+  // mr-auto my-auto inline-flex flex-row
   return (
     <>
-      <div
-        id="pokemonRouteName"
-        className="inline-flex justify-between font-bold mt-2 w-full flex-row text-lg  "
-      >
-        <div className="flex-1 text-left flex flex-row my-auto ">
-          <Link
-            href={"/" + pokemonpreviousname}
-            className=""
-            key={pokemonpreviousname}
-          >
+      <div id="pokemonRouteName" className="grid grid-cols-3 mt-2 text-xl ">
+        <div className="text-left flex flex-row my-auto mr-auto ">
+          <Link href={"/" + pokemonpreviousname} key={pokemonpreviousname}>
             ← {pokemonpreviousname}
           </Link>
         </div>
-        <div className="flex-1 text-3xl font-semibold text-center mx-auto">
+        <div className="text-3xl font-bold text-center mx-auto">
           <Link
-            href={"https://wiki.52poke.com/wiki/" + pokemonchinesename}
+            href={"https://wiki.52poke.com/wiki/" + pokemonname}
             target="_blank"
-            className=""
             key={pokemonname}
           >
             {pokemonchinesename}
@@ -72,8 +64,8 @@ export default async function PokemonPage({
             {pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
           </Link>
         </div>
-        <div className="flex-1 text-right flex flex-row-reverse my-auto">
-          <Link href={"/" + pokemonnextname} className="" key={pokemonnextname}>
+        <div className="text-right flex flex-row-reverse my-auto ml-auto">
+          <Link href={"/" + pokemonnextname} key={pokemonnextname}>
             {pokemonnextname} →
           </Link>
         </div>
