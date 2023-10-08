@@ -29,16 +29,7 @@ export async function getPokemonChineseName(url: string) {
   return name;
 }
 
-export async function getPokemonPreviousName(id: number) {
-  //https://pokeapi.co/api/v2/pokemon-species/1/
-  const response = await fetch(POKEMON_API + "pokemon/" + id);
-  const data = await response.json();
-  const name= data.name;
-  return name;
-}
-
-export async function getPokemonNextName(id: number) {
-  //https://pokeapi.co/api/v2/pokemon-species/1/
+export async function getPokemonName(id: number) {
   const response = await fetch(POKEMON_API + "pokemon/" + id);
   const data = await response.json();
   const name= data.name;

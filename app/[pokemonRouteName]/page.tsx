@@ -1,8 +1,7 @@
 import {
   getPokemon,
   getPokemonChineseName,
-  getPokemonNextName,
-  getPokemonPreviousName,
+  getPokemonName,
 } from "@/lib/pokeapi";
 import { PokemonImage } from "@/components/pokemon-image";
 import { PokemonStat } from "@/components/pokemon-stat";
@@ -15,7 +14,7 @@ import {
 import Link from "next/link";
 // localhost:3000/pikachu
 
-function getTwoID(id:number) {
+function getTwoID(id: number) {
   let previousid: number;
   let nextid: number;
   if (id === 1) {
@@ -28,7 +27,7 @@ function getTwoID(id:number) {
   } else {
     nextid = id + 1;
   }
-  return [previousid, nextid]
+  return [previousid, nextid];
 }
 export default async function PokemonPage({
   params,
@@ -40,29 +39,30 @@ export default async function PokemonPage({
   const pokemonid = pokemonObject.id;
   const pokemonname = pokemonObject.name;
   const [previousid, nextid] = getTwoID(pokemonid);
-  const pokemonpreviousname = await getPokemonPreviousName(previousid);
-  const pokemonnextname = await getPokemonNextName(nextid);
+  const pokemonpreviousname = await getPokemonName(previousid);
+  const pokemonnextname = await getPokemonName(nextid);
   const pokemonchinesename = await getPokemonChineseName(
     pokemonObject.species.url
   );
-
+// mr-auto my-auto inline-flex flex-row
   return (
     <>
       <div
         id="pokemonRouteName"
-        className="inline-flex justify-between text-3xl font-bold mx-2 text-center w-full flex-direction: row flex-wrap"
+        className="grid grid-cols-3 mt-2 text-xl"
       >
         <Link
           href={"/" + pokemonpreviousname}
-          className="w=1/3"
+          className="text-left flex flex-row my-auto mr-auto"
           key={pokemonpreviousname}
         >
-          {pokemonpreviousname}
+          <div className="my-auto">←</div>
+          <div className="my-auto">{pokemonpreviousname}</div>
         </Link>
         <Link
           href={"https://wiki.52poke.com/wiki/" + pokemonname}
           target="_blank"
-          className="w=1/3 text-2xl font-semibold"
+          className="text-3xl font-semibold text-center mx-auto"
           key={pokemonname}
         >
           {pokemonchinesename}
@@ -71,10 +71,11 @@ export default async function PokemonPage({
         </Link>
         <Link
           href={"/" + pokemonnextname}
-          className="w=1/3"
+          className="text-right flex flex-row-reverse my-auto ml-auto"
           key={pokemonnextname}
         >
-          {pokemonnextname}
+          <div className="my-auto">→</div>
+          <div className="my-auto">{pokemonnextname}</div>
         </Link>
       </div>
 

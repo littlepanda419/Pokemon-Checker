@@ -7,3 +7,8 @@ type globalAppVariables = {
   maxid: number;
   // more can go here. 
 };
+
+globalThis.app = {
+  totalPokemon: 1292,
+  maxid: 10274,
+};
