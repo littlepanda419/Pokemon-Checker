@@ -19,11 +19,12 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
       pokemon.name.toLowerCase().includes(searchText.toLowerCase())
     );
   };
-  
-  process.env.totalPokemon = pokemonList.length;
-  const id =pokemonList[pokemonList.length - 1].url.split("/")[6]
-  process.env.maxid = parseInt(id);
-  
+
+  //process.env.totalPokemon = pokemonList.length;
+  console.log(process.env.maxid,process.env.totalPokemon);
+  //const id = pokemonList[pokemonList.length - 1].url.split("/")[6];
+  //process.env.maxid = parseInt(id);
+
   // save the filtered array of objects
   const filteredPokemonList = searchFilter(pokemonList);
   // show the filtered array to user

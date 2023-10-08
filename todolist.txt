@@ -1,3 +1,6 @@
+!!important!!:
+!! fix maxID .env !!
+
 goals:
 1.中文查詢
 2.屬性查詢
