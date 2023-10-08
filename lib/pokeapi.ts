@@ -5,7 +5,6 @@ export async function getPokemonList() {
   const data = await response.json();
   for (let i = 1016; i < data.results.length; i++) {
     const id = data.results[i].url.split("/")[6];
-    console.log(id);
     if (id >= 10000) {
       data.results.splice(i, 1);
       i--;
@@ -19,7 +18,6 @@ export async function getSpecialFormPokemon() {
   const data = await response.json();
   for (let i = 0; i < data.results.length; i++) {
     const id = data.results[i].url.split("/")[6];
-    console.log(id);
     if (id < 10000) {
       data.results.splice(i, 1);
       i--;

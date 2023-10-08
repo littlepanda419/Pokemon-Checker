@@ -10,7 +10,7 @@ import { PokemonType } from "@/components/pokemon-type";
 import {
   PokemonMoveButton,
   PokemonMoveShow,
-} from "@/components/move/pokemon-move-show";
+} from "@/components/pokemon-move-show";
 import Link from "next/link";
 // localhost:3000/pikachu
 
