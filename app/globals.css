@@ -2,26 +2,136 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body,
+body[data-theme="dark"] {
+  --color-text-primary: white;
+  --color-text-secondary: #ffff88;
+  --color-bg-primary: #313338;
+  --color-bg-toggle: #2e3035;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body[data-theme="light"] {
+  --color-text-primary: #313338;
+  --color-text-secondary: #8888ff;
+  --color-bg-primary: #fef6ed;
+  --color-bg-toggle: #f6ede6;
 }
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: sans-serif;
+  transition: background 0.25s ease-in-out;
+}
+
+#hpbar {
+  background-color: greenyellow;
+}
+#attackbar {
+  background-color: goldenrod;
+}
+#defensebar {
+  background-color: darkgoldenrod;
+}
+#special-attackbar {
+  background-color: cyan;
+}
+#special-defensebar {
+  background-color: darkcyan;
+}
+#speedbar {
+  background-color: purple;
+}
+#hpev {
+  color: greenyellow;
+}
+#attackev {
+  color: goldenrod;
+}
+#defenseev {
+  color: darkgoldenrod;
+}
+#special-attackev {
+  color: cyan;
+}
+#special-defenseev {
+  color: darkcyan;
+}
+#speedev {
+  color: purple;
+}
+#typenormal {
+  background-color: #4e5457;
+  border-color: #4e5457;
+}
+#typefighting {
+  background-color: #cc6600;
+  border-color: #cc6600;
+}
+#typeflying {
+  background-color: #0f4579;
+  border-color: #0f4579;
+}
+#typepoison {
+  background-color: #6b2a9a;
+  border-color: #6b2a9a;
+}
+#typeground {
+  background-color: #74411a;
+  border-color: #74411a;
+}
+#typerock {
+  background-color: #504c33;
+  border-color: #504c33;
+}
+#typebug {
+  background-color: #748114;
+  border-color: #748114;
+}
+#typeghost {
+  background-color: #5a345a;
+  border-color: #5a345a;
+}
+#typesteel {
+  background-color: #3a7083;
+  border-color: #3a7083;
+}
+#typefire {
+  background-color: #af1415;
+  border-color: #af1415;
+}
+#typewater {
+  background-color: #0d55b0;
+  border-color: #0d55b0;
+}
+#typegrass {
+  background-color: #328121;
+  border-color: #328121;
+}
+#typeelectric {
+  background-color: #c89a00;
+  border-color: #c89a00;
+}
+#typepsychic {
+  background-color: #a10e3d;
+  border-color: #a10e3d;
+}
+#typeice {
+  background-color: #0084a6;
+  border-color: #0084a6;
+}
+#typedragon {
+  background-color: #192795;
+  border-color: #192795;
+}
+#typedark {
+  background-color: #363a3d;
+  border-color: #363a3d;
+}
+#typefairy {
+  background-color: #840f84;
+  border-color: #840f84;
+}
+
+label:has(input[type="radio"]:checked) {
+  @apply bg-[#5865f2] text-white;
 }
