@@ -63,7 +63,6 @@ export function PokemonMoveButton() {
     </>
   );
 }
-
 export function PokemonMoveShow({ pokemonObject }: PokemonStatProps) {
   const { moveshow, setmoveshow } = useBetween(useShareableState);
   if (moveshow === "lvl") {
@@ -72,11 +71,10 @@ export function PokemonMoveShow({ pokemonObject }: PokemonStatProps) {
         <PokemonMovebylevel pokemonObject={pokemonObject} />
       </div>
     );
-  } else {
-    return (
-      <div className="inline-flex flex-col w-full">
-        <PokemonMovebymachine pokemonObject={pokemonObject} />
-      </div>
-    );
   }
+  return (
+    <div className="inline-flex flex-col w-full">
+      <PokemonMovebymachine pokemonObject={pokemonObject} />
+    </div>
+  );
 }

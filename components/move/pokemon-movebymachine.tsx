@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-table";
 import React, { useMemo, useState, useEffect } from "react";
 import useColumns from "@/components/table/movecolumn";
+import { useBetween } from "use-between";
 
 type PokemonStatProps = {
   pokemonObject: any;
@@ -41,14 +42,30 @@ function ismachine(moveObject: any) {
   }
   return machine;
 }
+
+const useShareableState = () => {
+  const [Loading, setLoading] = useState(true);
+  return {
+    Loading,
+    setLoading,
+  };
+};
+
 function getMoveTest({ pokemonObject }: PokemonStatProps) {
+  let moveatnow = 0;
+  const { Loading, setLoading } = useBetween(useShareableState);
   const [moveData, setMoveData] = useState<Array<any>>([]);
   pokemonObject.moves.map((moveObject: any) => {
     const move = moveObject.move;
     useEffect(() => {
       if (!ismachine) {
+        setLoading(true);
         return;
       }
+      moveatnow++;
+      setTimeout(() => {
+        setLoading(false);
+      }, 600);
       const moveUrl = move.url; //https://pokeapi.co/api/v2/move/550/
       let ignore = false;
       fetch(moveUrl)
@@ -76,6 +93,7 @@ function getMoveTest({ pokemonObject }: PokemonStatProps) {
 }
 
 export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
+  const { Loading, setLoading } = useBetween(useShareableState);
   const moveData = getMoveTest({ pokemonObject });
   moveData.sort((a, b) => ("" + a.name).localeCompare(b.name));
   const data = useMemo(() => moveData, [moveData]);
@@ -94,6 +112,9 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
       setsorting(newSorting);
     },
   });
+  if (Loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       Machine moves:

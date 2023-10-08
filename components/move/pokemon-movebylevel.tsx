@@ -7,12 +7,11 @@ import {
 } from "@tanstack/react-table";
 import React, { useMemo, useState, useEffect } from "react";
 import useColumns from "@/components/table/movecolumn";
-import { METHODS } from "http";
+import { useBetween } from "use-between";
 
 type PokemonStatProps = {
   pokemonObject: any;
 };
-
 const ArrowWay: Record<SortDirection, string> = {
   asc: " ↑",
   desc: " ↓",
@@ -23,7 +22,17 @@ function isSortDirection(
   return typeof value === "string" && ["asc", "desc"].includes(value);
 }
 
+const useShareableState = () => {
+  const [Loading, setLoading] = useState(true);
+  return {
+    Loading,
+    setLoading,
+  };
+};
 function getMoveTest({ pokemonObject }: PokemonStatProps) {
+  let moveatnow = 0;
+  let totalmoves=0;
+  const { Loading, setLoading } = useBetween(useShareableState);
   const [moveData, setMoveData] = useState<Array<any>>([]);
   pokemonObject.moves.map((moveObject: any) => {
     useEffect(() => {
@@ -44,10 +53,19 @@ function getMoveTest({ pokemonObject }: PokemonStatProps) {
         ) {
           islvlup = true;
           lvlplace = i;
+          totalmoves++;
         }
       }
       if (!islvlup) {
+        setLoading(true);
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
         return;
+      }
+      moveatnow++;
+      if (moveatnow === totalmoves) {
+        setLoading(false);
       }
       const moveUrl = move.url; //https://pokeapi.co/api/v2/move/550/
       const movelevel =
@@ -78,11 +96,11 @@ function getMoveTest({ pokemonObject }: PokemonStatProps) {
 }
 
 export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
+  const { Loading, setLoading } = useBetween(useShareableState);
   const moveData = getMoveTest({ pokemonObject });
   moveData.sort((a, b) => a.level - b.level);
   const data = useMemo(() => moveData, [moveData]);
   const columns = useColumns();
-
   const [sorting, setsorting] = useState([]);
   const table = useReactTable({
     data,
@@ -96,6 +114,9 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
       setsorting(newSorting);
     },
   });
+  if (Loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       Level up moves:

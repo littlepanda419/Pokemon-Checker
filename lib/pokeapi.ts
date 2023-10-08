@@ -14,6 +14,20 @@ export async function getPokemonList() {
   return data.results;
 }
 
+export async function getSpecialFormPokemon() {
+  const response = await fetch(POKEMON_API + "pokemon?limit=10000&offset=1015");
+  const data = await response.json();
+  for (let i = 0; i < data.results.length; i++) {
+    const id = data.results[i].url.split("/")[6];
+    console.log(id);
+    if (id < 10000) {
+      data.results.splice(i, 1);
+      i--;
+    }
+  }
+  return data.results;
+}
+
 // getPokemon -> given a string "pikachu", get the information of pikachu
 export async function getPokemon(name: string) {
   // pokemon/ditto
