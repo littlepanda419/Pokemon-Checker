@@ -7,15 +7,6 @@ import { Input } from "@/components/ui/input";
 interface PokemonGridProps {
   pokemonList: any;
 }
-/*
-export async function getStaticProps() {
-  const db = await myDB.connect({
-    host: process.env.DB_HOST,
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-  })
-  // ...
-}*/
 
 export function PokemonGrid({ pokemonList }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");
@@ -28,10 +19,12 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
       pokemon.name.toLowerCase().includes(searchText.toLowerCase())
     );
   };
+  
   process.env.totalPokemon = pokemonList.length;
-  process.env.maxid = parseInt(pokemonList[pokemonList.length - 1].url.split("/")[6]);
+  const id =pokemonList[pokemonList.length - 1].url.split("/")[6]
+  process.env.maxid = parseInt(id);
+  
   // save the filtered array of objects
-  console.log(process.env.totalPokemon);
   const filteredPokemonList = searchFilter(pokemonList);
   // show the filtered array to user
   return (

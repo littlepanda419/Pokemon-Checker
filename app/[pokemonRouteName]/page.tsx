@@ -19,11 +19,11 @@ function getTwoID(id: number) {
   let nextid: number;
   
   if (id === 1) {
-    previousid = process.env.maxid;//10274 //1092
+    previousid = process.env.maxid;
   } else {
     previousid = id - 1;
   }
-  if (id === process.env.maxid) {
+  if (id >= process.env.maxid) {
     nextid = 1;
   } else {
     nextid = id + 1;
