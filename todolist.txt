@@ -2,9 +2,9 @@ goals:
 1.中文查詢
 2.屬性查詢
 
-4.all settle https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled
-5.side bar to (1.)(2.) page
+5.side bar for (1.)(2.) page
 6.把movebylvl & moveby machine 放進move-show 只讀取一次api, 顯示一個 其餘時間隱藏
+7.RWD
 
 done:
 3.進化退化連接 done - 1008
