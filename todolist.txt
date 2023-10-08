@@ -1,5 +1,5 @@
 goals:
 1.中文查詢
 2.屬性查詢
-3.進化退化連接
+3.進化退化連接 done - 1008
 4.all settle https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled

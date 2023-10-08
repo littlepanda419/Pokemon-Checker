@@ -44,39 +44,39 @@ export default async function PokemonPage({
   const pokemonchinesename = await getPokemonChineseName(
     pokemonObject.species.url
   );
-// mr-auto my-auto inline-flex flex-row
+
   return (
     <>
       <div
         id="pokemonRouteName"
-        className="grid grid-cols-3 mt-2 text-xl"
+        className="inline-flex justify-between font-bold mt-2 w-full flex-row text-lg  "
       >
-        <Link
-          href={"/" + pokemonpreviousname}
-          className="text-left flex flex-row my-auto mr-auto"
-          key={pokemonpreviousname}
-        >
-          <div className="my-auto">←</div>
-          <div className="my-auto">{pokemonpreviousname}</div>
-        </Link>
-        <Link
-          href={"https://wiki.52poke.com/wiki/" + pokemonname}
-          target="_blank"
-          className="text-3xl font-semibold text-center mx-auto"
-          key={pokemonname}
-        >
-          {pokemonchinesename}
-          <br></br>
-          {pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
-        </Link>
-        <Link
-          href={"/" + pokemonnextname}
-          className="text-right flex flex-row-reverse my-auto ml-auto"
-          key={pokemonnextname}
-        >
-          <div className="my-auto">→</div>
-          <div className="my-auto">{pokemonnextname}</div>
-        </Link>
+        <div className="flex-1 text-left flex flex-row my-auto ">
+          <Link
+            href={"/" + pokemonpreviousname}
+            className=""
+            key={pokemonpreviousname}
+          >
+            ← {pokemonpreviousname}
+          </Link>
+        </div>
+        <div className="flex-1 text-3xl font-semibold text-center mx-auto">
+          <Link
+            href={"https://wiki.52poke.com/wiki/" + pokemonchinesename}
+            target="_blank"
+            className=""
+            key={pokemonname}
+          >
+            {pokemonchinesename}
+            <br></br>
+            {pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
+          </Link>
+        </div>
+        <div className="flex-1 text-right flex flex-row-reverse my-auto">
+          <Link href={"/" + pokemonnextname} className="" key={pokemonnextname}>
+            {pokemonnextname} →
+          </Link>
+        </div>
       </div>
 
       <div
