@@ -1,8 +1,9 @@
 "use client";
-import { PokemonCard } from "./pokemon-card";
+import { PokemonCard } from "@/components/pokemon-card";
 import { useState } from "react";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import "@/components/globalvars";
 
 interface PokemonGridProps {
   pokemonList: any;
@@ -10,14 +11,20 @@ interface PokemonGridProps {
 
 export function PokemonGrid({ pokemonList }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");
+
   //console.log(pokemonList);
   // filter the text
   // {name: "pikachu", url:""}
   const searchFilter = (pokemonList: any) => {
     return pokemonList.filter((pokemon: any) =>
-      pokemon.name.toLowerCase().includes(searchText.toLowerCase()),
+      pokemon.name.toLowerCase().includes(searchText.toLowerCase())
     );
   };
+  globalThis.app = {
+    totalPokemon: pokemonList.length,
+    maxid: parseInt(pokemonList[pokemonList.length - 1].url.split("/")[6]),
+  };
+  Object.freeze(globalThis.app);
   // save the filtered array of objects
   const filteredPokemonList = searchFilter(pokemonList);
   // show the filtered array to user

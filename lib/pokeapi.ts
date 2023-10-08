@@ -28,3 +28,19 @@ export async function getPokemonChineseName(url: string) {
   const name= data.names.find((item: any) => item.language.name === "zh-Hant").name;
   return name;
 }
+
+export async function getPokemonPreviousName(id: number) {
+  //https://pokeapi.co/api/v2/pokemon-species/1/
+  const response = await fetch(POKEMON_API + "pokemon/" + id);
+  const data = await response.json();
+  const name= data.name;
+  return name;
+}
+
+export async function getPokemonNextName(id: number) {
+  //https://pokeapi.co/api/v2/pokemon-species/1/
+  const response = await fetch(POKEMON_API + "pokemon/" + id);
+  const data = await response.json();
+  const name= data.name;
+  return name;
+}

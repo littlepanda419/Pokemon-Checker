@@ -1,4 +1,9 @@
-import { getPokemon, getPokemonChineseName } from "@/lib/pokeapi";
+import {
+  getPokemon,
+  getPokemonChineseName,
+  getPokemonNextName,
+  getPokemonPreviousName,
+} from "@/lib/pokeapi";
 import { PokemonImage } from "@/components/pokemon-image";
 import { PokemonStat } from "@/components/pokemon-stat";
 import { PokemonEv } from "@/components/pokemon-ev";
@@ -7,8 +12,24 @@ import {
   PokemonMoveButton,
   PokemonMoveShow,
 } from "@/components/move/pokemon-move-show";
+import Link from "next/link";
 // localhost:3000/pikachu
 
+function getTwoID(id:number) {
+  let previousid: number;
+  let nextid: number;
+  if (id === 1) {
+    previousid = globalThis.app.maxid;
+  } else {
+    previousid = id - 1;
+  }
+  if (id === globalThis.app.maxid) {
+    nextid = 1;
+  } else {
+    nextid = id + 1;
+  }
+  return [previousid, nextid]
+}
 export default async function PokemonPage({
   params,
 }: {
@@ -16,29 +37,54 @@ export default async function PokemonPage({
 }) {
   const { pokemonRouteName } = params; // pikachu
   const pokemonObject = await getPokemon(pokemonRouteName); // get the API data for pikachu
-  const pokemonName = pokemonObject.name; //pikachu
-  const pokemonChineseName = await getPokemonChineseName(
+  const pokemonid = pokemonObject.id;
+  const pokemonname = pokemonObject.name;
+  const [previousid, nextid] = getTwoID(pokemonid);
+  const pokemonpreviousname = await getPokemonPreviousName(previousid);
+  const pokemonnextname = await getPokemonNextName(nextid);
+  const pokemonchinesename = await getPokemonChineseName(
     pokemonObject.species.url
   );
+
   return (
     <>
       <div
         id="pokemonRouteName"
-        className="flex justify-center text-3xl font-bold mx-2 text-center"
+        className="inline-flex justify-between text-3xl font-bold mx-2 text-center w-full flex-direction: row flex-wrap"
       >
-        <a href={"https://wiki.52poke.com/wiki/" + pokemonName} target="_blank">
-          {pokemonChineseName}
+        <Link
+          href={"/" + pokemonpreviousname}
+          className="w=1/3"
+          key={pokemonpreviousname}
+        >
+          {pokemonpreviousname}
+        </Link>
+        <Link
+          href={"https://wiki.52poke.com/wiki/" + pokemonname}
+          target="_blank"
+          className="w=1/3 text-2xl font-semibold"
+          key={pokemonname}
+        >
+          {pokemonchinesename}
           <br></br>
-          {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
-        </a>
+          {pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
+        </Link>
+        <Link
+          href={"/" + pokemonnextname}
+          className="w=1/3"
+          key={pokemonnextname}
+        >
+          {pokemonnextname}
+        </Link>
       </div>
+
       <div
         id="pokesplash"
         className="relative items-center justify-center w-[400px] h-[400px] mx-auto"
       >
         <PokemonImage
           image={pokemonObject.sprites.other["official-artwork"].front_default}
-          name={pokemonName}
+          name={pokemonname}
         />
       </div>
       <div
