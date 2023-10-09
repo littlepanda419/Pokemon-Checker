@@ -1,15 +1,18 @@
 import type { Config } from "tailwindcss";
-
+const defaultTheme = require('tailwindcss/defaultTheme')
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  // 加入 darkMode
   darkMode: "media",
   theme: {
     extend: {
+      screens: {
+        'pad': '768px',
+        'pc': '1024px',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -25,6 +28,8 @@ const config: Config = {
       animation: {
         whosthatpokemon: "whosthatpokemon 3s linear",
       },
+    },
+    screens: {
     },
   },
   plugins: [],

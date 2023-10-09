@@ -19,7 +19,8 @@ export default function RootLayout({
           <div className="">
             <a
               href="/"
-              className="flex justify-center text-4xl font-bold border-4 rounded-full w-fit mx-auto text-yellow-400 border-blue-600 p-2"
+              className="flex justify-center text-2xl font-bold border-4 rounded-full w-fit mx-auto text-yellow-400 border-blue-600 p-2 
+              pad:text-3xl pc:text-4xl"
             >
               Pokemon Checker
             </a>

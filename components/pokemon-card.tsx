@@ -11,10 +11,12 @@ export function PokemonCard({ name }: PokemonCardProps) {
   return (
     <Link
       href={name}
-      className="rounded-lg border-2 m-4 p-5 hover:bg-neutral-800 hover:border-neutral-600 shadow-[3px_3px_0px_0px_rgba(255,255,128,0.8)]"
+      className="rounded-lg border-2 my-3 mx-2 py-1 hover:bg-neutral-800 hover:border-neutral-600 shadow-[2px_2px_0px_0px_rgba(255,255,128,0.8)]
+                  pad:m-3 pad:p-4 pad:shadow-[3px_3px_0px_0px_rgba(255,255,128,0.8)]
+                  pc:m-4 pc:p-4 pc:shadow-[5px_5px_0px_0px_rgba(255,255,128,0.8)]"
       key={name + "Card"}
     >
-      <div className={`text-2xl font-semibold`}>
+      <div className="text-base font-semibold ">
         {name.charAt(0).toUpperCase() + name.slice(1)}
       </div>
     </Link>
