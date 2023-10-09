@@ -17,18 +17,16 @@ import Link from "next/link";
 function getTwoID(id: number) {
   let previousid: number=0;
   let nextid: number=0;
-  console.log("before",id, typeof id,id === 1,previousid,nextid,typeof process.env.maxid)
   if (id === 1) {
-    previousid = process.env.maxid;
+    previousid = global._maxid;
   } else {
     previousid = id - 1;
   }
-  if (id >= process.env.maxid) {
+  if (id >= global._maxid) {
     nextid = 1;
   } else {
     nextid = id + 1;
   }
-  console.log("after",id, typeof id,id === 1,previousid,nextid)
   return [previousid, nextid];
 }
 export default async function PokemonPage({
@@ -41,7 +39,7 @@ export default async function PokemonPage({
   const pokemonid = pokemonObject.id;
   const pokemonname = pokemonObject.name;
   const [previousid, nextid] = getTwoID(pokemonid);
-  console.log("after",pokemonid, typeof pokemonid,pokemonid === 1,previousid,nextid)
+  
   const pokemonpreviousname = await getPokemonName(previousid);
   const pokemonnextname = await getPokemonName(nextid);
   const pokemonchinesename = await getPokemonChineseName(

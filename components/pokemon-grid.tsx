@@ -7,26 +7,25 @@ import { Input } from "@/components/ui/input";
 interface PokemonGridProps {
   pokemonList: any;
 }
-interface PokemonDexProps {
-  maxid: number;
-  totalPokemon: number;
-}
+
 export function PokemonGrid({ pokemonList }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");
 
   //console.log(pokemonList);
   // filter the text
   // {name: "pikachu", url:""}
+
   const searchFilter = (pokemonList: any) => {
     return pokemonList.filter((pokemon: any) =>
       pokemon.name.toLowerCase().includes(searchText.toLowerCase())
     );
   };
 
-  process.env.totalPokemon = pokemonList.length;
-  const id = pokemonList[pokemonList.length - 1].url.split("/")[6];
-  process.env.maxid = id;
-  console.log(process.env.maxid, process.env.totalPokemon)
+  const id: number = parseInt(
+    pokemonList[pokemonList.length - 1].url.split("/")[6]
+  );
+  global._maxid = id;
+  global._pokemontotal = pokemonList.length;
 
   // save the filtered array of objects
   const filteredPokemonList = searchFilter(pokemonList);

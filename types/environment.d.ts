@@ -1,11 +1,6 @@
-export {};
-
 declare global {
-  namespace NodeJS {
-    interface ProcessEnv {
-      maxid: number;
-      totalPokemon: number;
-      ENV: "test" | "dev" | "prod";
-    }
-  }
+  var _maxid: number;
+  var _pokemontotal: number;
 }
+
+export {};
