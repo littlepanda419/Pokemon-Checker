@@ -1,7 +1,7 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+// here I imported the font I want to use, even with this method I can use other fonts in other parts in the same way
+import { inter } from "@/types/fonts"; 
 
 export const metadata = {
   title: "Poke Checker Made by Panda",

@@ -12,6 +12,7 @@ export function PokemonImage({ image, name }: { image: string; name: string }) {
         alt={"Picture of " + name}
         priority
         fill
+        sizes="(min-width: 1024px) 350px, (min-width: 768px) 275px,200px"
         className="brightness-0 mx-auto my-auto"
         onLoadingComplete={(image) => {
           {
