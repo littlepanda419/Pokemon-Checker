@@ -15,9 +15,9 @@ import Link from "next/link";
 // localhost:3000/pikachu
 
 function getTwoID(id: number) {
-  let previousid: number;
-  let nextid: number;
-  
+  let previousid: number=1;
+  let nextid: number=1;
+  console.log("before",id, typeof id,id === 1,previousid,nextid)
   if (id === 1) {
     previousid = process.env.maxid;
   } else {
@@ -28,6 +28,7 @@ function getTwoID(id: number) {
   } else {
     nextid = id + 1;
   }
+  console.log("after",id, typeof id,id === 1,previousid,nextid)
   return [previousid, nextid];
 }
 export default async function PokemonPage({
