@@ -140,36 +140,14 @@ label:has(input[type="radio"]:checked) {
   label:has(input[type="radio"]:checked) {
     @apply bg-[#5865f2] text-white;
   }
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  th,
-  td {
-    font-size: 16px;
-  }
 }
 @media (min-width: 768px) {
   label:has(input[type="radio"]:checked) {
     @apply bg-[#5865f2] text-white;
   }
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  th,
-  td {
-    font-size: 18px;
-  }
 }
 @media (min-width: 1024px) {
   label:has(input[type="radio"]:checked) {
     @apply bg-[#5865f2] text-white;
-  }
-  th,
-  td {
-    font-size: 20px;
   }
 }

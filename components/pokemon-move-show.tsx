@@ -68,6 +68,7 @@ export function PokemonMoveButton() {
   useEffect(() => {
     const machineList = document.querySelector("#moveByMachineList");
     if (machineList) {
+      console.log("machineList");
       machineList.classList.add("inline-flex");
     }
   }, []);
@@ -319,7 +320,7 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
         className="inline-flex flex-col w-full text-2xl"
       >
         Level up moves:
-      <table className="w-full mt-2 block overflow-x-auto whitespace-nowrap">
+        <table className="w-full mt-2 block overflow-x-auto whitespace-nowrap">
           <thead className="bg-zinc-700 w-full text-center ">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id} className="w-screen ">
@@ -358,7 +359,11 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
                     (
                       cell //7
                     ) => (
-                      <td key={cell.id} id={cell.id} className="py-1 text-lg pc:text-xl">
+                      <td
+                        key={cell.id}
+                        id={cell.id}
+                        className="py-1 text-lg pc:text-xl"
+                      >
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
@@ -396,10 +401,13 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
     },
   });
   return (
-    <div id="moveByMachineList" className="hidden flex-col w-full text-2xl">
+    <div
+      id="moveByMachineList"
+      className="hidden flex-col w-full text-2xl"
+    >
       Machine moves:
       <table className="w-full mt-2 block overflow-x-auto whitespace-nowrap">
-        <thead className="bg-zinc-700 w-full text-center text-xl pc:text-2xl">
+        <thead className="bg-zinc-700 w-full text-center ">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id} className="w-screen">
               {headerGroup.headers.map((header) =>
@@ -408,7 +416,7 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
                   return (
                     <th
                       key={header.id}
-                      className="p-1 min-w-[75px] w-screen"
+                      className="p-1 min-w-[75px] w-screen text-lg pc:text-xl"
                       onClick={header.column.getToggleSortingHandler()}
                     >
                       {flexRender(
@@ -423,7 +431,7 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
             </tr>
           ))}
         </thead>
-          <tbody className="text-xl pc:text-2xl">
+        <tbody className="">
           {table.getRowModel().rows.map(
             (
               row //1
@@ -437,7 +445,11 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
                   (
                     cell //7
                   ) => (
-                    <td key={cell.id} id={cell.id} className="py-1">
+                    <td
+                      key={cell.id}
+                      id={cell.id}
+                      className="py-1 text-lg pc:text-xl"
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()

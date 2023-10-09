@@ -48,7 +48,7 @@ export default async function PokemonPage({
   return (
     <>
       <div id="pokemonRouteName" className="grid grid-cols-3 mt-2 text-lg">
-        <div className="text-left flex flex-row my-auto mr-auto overflow-visible">
+        <div className="text-left flex flex-row my-auto mr-auto overflow-visible font-medium">
           <Link href={"/" + pokemonpreviousname} key={pokemonpreviousname}>
             ← {pokemonpreviousname}
           </Link>
@@ -64,7 +64,7 @@ export default async function PokemonPage({
             {pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
           </Link>
         </div>
-        <div className="text-right flex flex-row-reverse my-auto ml-auto overflow-visible">
+        <div className="text-right flex flex-row-reverse my-auto ml-auto overflow-visible font-medium">
           <Link href={"/" + pokemonnextname} key={pokemonnextname}>
             {pokemonnextname} →
           </Link>
@@ -73,7 +73,7 @@ export default async function PokemonPage({
 
       <div
         id="pokesplash"
-        className="relative items-center justify-center  mx-auto w-[200px] h-[200px]"
+        className="relative items-center justify-center  mx-auto w-[200px] h-[200px] pad:w-[275px] pad:h-[275px] pc:w-[350px] pc:h-[350px]"
       >
         <PokemonImage
           image={pokemonObject.sprites.other["official-artwork"].front_default}
@@ -82,7 +82,7 @@ export default async function PokemonPage({
       </div>
       <div
         id="poketype"
-        className="flex justify-center content-center mx-auto h-fit text-base"
+        className="flex justify-center content-center mx-auto h-fit text-base pad:text-xl pc:text-xl"
       >
         <PokemonType pokemonObject={pokemonObject} />
       </div>
@@ -91,7 +91,7 @@ export default async function PokemonPage({
       <div className="pc:flex">
         <div
           id="pokestatlist"
-          className="pc:inline-flex w-full pc:w-1/2 mx-auto text-center pc:justify-top flex-col pc:border-r px-2 text-lg"
+          className="pc:inline-flex w-full pc:w-1/2 mx-auto text-center pc:justify-top flex-col pc:border-r px-2 text-lg pad:text-xl pc:text-xl"
         >
           <div className="pc:mt-4 w-full mt-2">
             <PokemonStat pokemonObject={pokemonObject} />
@@ -99,9 +99,9 @@ export default async function PokemonPage({
 
           <div
             id="pokeevlist"
-            className="text-center justify-center border-t mt-4 mx-4"
+            className="text-center justify-center border-t mt-4 mx-4 "
           >
-            <div className="mt-2 pc:mt-4">
+            <div className="mt-2 pc:mt-4 text-lg pad:text-xl pc:text-xl">
               <PokemonEv pokemonObject={pokemonObject} />
             </div>
           </div>
