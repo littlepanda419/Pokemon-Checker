@@ -15,9 +15,9 @@ import Link from "next/link";
 // localhost:3000/pikachu
 
 function getTwoID(id: number) {
-  let previousid: number=1;
-  let nextid: number=1;
-  console.log("before",id, typeof id,id === 1,previousid,nextid)
+  let previousid: number=0;
+  let nextid: number=0;
+  console.log("before",id, typeof id,id === 1,previousid,nextid,typeof process.env.maxid)
   if (id === 1) {
     previousid = process.env.maxid;
   } else {
