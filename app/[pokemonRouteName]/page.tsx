@@ -17,7 +17,6 @@ import Link from "next/link";
 function getTwoID(id: number) {
   let previousid: number=0;
   let nextid: number=0;
-  console.log("before",id, typeof id,id === 1,previousid,nextid,typeof process.env.MAXID)
   if (id === 1) {
     previousid = process.env.MAXID;
   } else {
@@ -28,7 +27,6 @@ function getTwoID(id: number) {
   } else {
     nextid = id + 1;
   }
-  console.log("after",id, typeof id,id === 1,previousid,nextid)
   return [previousid, nextid];
 }
 export default async function PokemonPage({

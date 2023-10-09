@@ -1,5 +1,3 @@
-!!important!!:
-!! fix maxID .env !! => pass total length into pokemonpage
 
 goals:
 1.中文查詢
