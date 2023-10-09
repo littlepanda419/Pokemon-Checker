@@ -370,7 +370,7 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
             )}
           </tbody>
         </table>
-        ver. {qualifiedmovegensname}
+        gen {qualifiedmovegensname}
       </div>
     );
   }
@@ -454,7 +454,7 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
           )}
         </tbody>
       </table>
-        ver. {qualifiedmovegensname}
+        gen {qualifiedmovegensname}
     </div>
   );
 }
