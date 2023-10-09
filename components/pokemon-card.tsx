@@ -16,7 +16,7 @@ export function PokemonCard({ name }: PokemonCardProps) {
                   pc:m-4 pc:p-4 pc:shadow-[5px_5px_0px_0px_rgba(255,255,128,0.8)]"
       key={name + "Card"}
     >
-      <div className="text-base font-semibold ">
+      <div className="text-base font-semibold pad:text-lg pc:text-2xl">
         {name.charAt(0).toUpperCase() + name.slice(1)}
       </div>
     </Link>

@@ -48,12 +48,12 @@ export default async function PokemonPage({
   return (
     <>
       <div id="pokemonRouteName" className="grid grid-cols-3 mt-2 text-lg">
-        <div className="text-left flex flex-row my-auto mr-auto overflow-visible font-medium">
+        <div className="text-left flex flex-row my-auto mr-auto  text-base pad:text-xl pad:font-medium">
           <Link href={"/" + pokemonpreviousname} key={pokemonpreviousname}>
             ← {pokemonpreviousname}
           </Link>
         </div>
-        <div className="font-bold text-center mx-auto text-2xl">
+        <div className="font-bold text-center mx-auto text-2xl pc:text-3xl">
           <Link
             href={"https://wiki.52poke.com/wiki/" + pokemonname}
             target="_blank"
@@ -64,7 +64,7 @@ export default async function PokemonPage({
             {pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
           </Link>
         </div>
-        <div className="text-right flex flex-row-reverse my-auto ml-auto overflow-visible font-medium">
+        <div className="text-right flex flex-row-reverse my-auto ml-auto  text-base pad:text-xl pad:font-medium">
           <Link href={"/" + pokemonnextname} key={pokemonnextname}>
             {pokemonnextname} →
           </Link>
