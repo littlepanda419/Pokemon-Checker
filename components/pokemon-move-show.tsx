@@ -15,11 +15,14 @@ type PokemonStatProps = {
 const useShareableState = () => {
   const [moveshow, setmoveshow] = useState("lvl");
   const [loading, setLoading] = useState(true);
+  const [generation, setGeneration] = useState("");
   return {
     moveshow,
     setmoveshow,
     loading,
     setLoading,
+    generation,
+    setGeneration,
   };
 };
 
@@ -137,17 +140,18 @@ function isSortDirection(
   return typeof value === "string" && ["asc", "desc"].includes(value);
 }
 
-let qualifiedmovegensname: string = "";
 let longestitem: number = 0;
 function getqualifiedmovegensname(moveObject: any) {
+  const { generation, setGeneration } = useBetween(useShareableState);
   let movegens = moveObject.version_group_details;
-    if (longestitem < movegens.length) {
-      longestitem = movegens.length;
-      qualifiedmovegensname = movegens[movegens.length-1].version_group.name;
-    }
-  return qualifiedmovegensname;
+  if (longestitem < movegens.length) {
+    longestitem = movegens.length;
+    setGeneration(movegens[movegens.length - 1].version_group.name);
+  }
+  return generation;
 }
 function getMoveLearnWay(moveObject: any) {
+  const { generation, setGeneration } = useBetween(useShareableState);
   let moveway: string = "";
   let movegens = moveObject.version_group_details;
   let movelevel: number = 0;
@@ -167,7 +171,6 @@ function getMoveLearnWay(moveObject: any) {
   return {
     mLW: moveway,
     mLL: movelevel,
-    qGE: qualifiedmovegensname,
   };
 }
 
@@ -179,7 +182,6 @@ function getMove({ pokemonObject }: PokemonStatProps, getter: string) {
     const findMVV = getMoveLearnWay(moveObject);
     const mLW = findMVV.mLW;
     const mLL = findMVV.mLL;
-    const mQG = findMVV.qGE;
     useEffect(() => {
       if (mLW === "") {
         return;
@@ -235,6 +237,7 @@ function getMove({ pokemonObject }: PokemonStatProps, getter: string) {
 }
 
 export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
+  const { generation, setGeneration } = useBetween(useShareableState);
   const { loading, setLoading } = useBetween(useShareableState);
   const moveData = getMove({ pokemonObject }, "level-up");
   moveData.sort((a, b) => a.level - b.level);
@@ -370,13 +373,14 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
             )}
           </tbody>
         </table>
-        gen {qualifiedmovegensname}
+        gen. {generation}
       </div>
     );
   }
 }
 
 export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
+  const { generation, setGeneration } = useBetween(useShareableState);
   const moveData = getMove({ pokemonObject }, "machine");
   moveData.sort((a, b) => ("" + a.name).localeCompare(b.name));
   const data = useMemo(() => moveData, [moveData]);
@@ -454,7 +458,7 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
           )}
         </tbody>
       </table>
-        gen {qualifiedmovegensname}
+      gen. {generation}
     </div>
   );
 }
