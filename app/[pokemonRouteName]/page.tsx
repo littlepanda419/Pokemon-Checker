@@ -41,6 +41,7 @@ export default async function PokemonPage({
   const pokemonid = pokemonObject.id;
   const pokemonname = pokemonObject.name;
   const [previousid, nextid] = getTwoID(pokemonid);
+  console.log("after",pokemonid, typeof pokemonid,pokemonid === 1,previousid,nextid)
   const pokemonpreviousname = await getPokemonName(previousid);
   const pokemonnextname = await getPokemonName(nextid);
   const pokemonchinesename = await getPokemonChineseName(
