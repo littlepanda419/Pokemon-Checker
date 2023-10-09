@@ -68,7 +68,6 @@ export function PokemonMoveButton() {
   useEffect(() => {
     const machineList = document.querySelector("#moveByMachineList");
     if (machineList) {
-      console.log("machineList");
       machineList.classList.add("inline-flex");
     }
   }, []);
@@ -137,45 +136,38 @@ function isSortDirection(
 ): value is SortDirection {
   return typeof value === "string" && ["asc", "desc"].includes(value);
 }
+
+let qualifiedmovegensname: string = "";
+let longestitem: number = 0;
+function getqualifiedmovegensname(moveObject: any) {
+  let movegens = moveObject.version_group_details;
+    if (longestitem < movegens.length) {
+      longestitem = movegens.length;
+      qualifiedmovegensname = movegens[movegens.length-1].version_group.name;
+    }
+  return qualifiedmovegensname;
+}
 function getMoveLearnWay(moveObject: any) {
-  let moveway: string = "other";
+  let moveway: string = "";
   let movegens = moveObject.version_group_details;
   let movelevel: number = 0;
+  const qualifiedmovegensname = getqualifiedmovegensname(moveObject);
   for (let i = 0; i < movegens.length; i++) {
     let movegensname = movegens[i].version_group.name;
     let movegensmethod = movegens[i].move_learn_method.name;
-    if (
-      movegensname === "sword-shield" ||
-      movegensname === "scarlet-violet" ||
-      movegensname === "legends-arceus" ||
-      movegensname === "the-indigo-disk" ||
-      movegensname === "the-teal-mask"
-    ) {
+    if (movegensname === qualifiedmovegensname) {
       if (movegensmethod === "level-up") {
-        moveway = "level-up";
+        moveway += "level-up";
         movelevel = moveObject.version_group_details[i].level_learned_at;
-        return {
-          mLW: moveway,
-          mLL: movelevel,
-        };
       } else if (movegensmethod === "machine" || movegensmethod === "tutor") {
-        moveway = "machine";
-        return {
-          mLW: moveway,
-          mLL: movelevel,
-        };
-      } else {
-        moveway = "other";
-        return {
-          mLW: moveway,
-          mLL: movelevel,
-        };
+        moveway += "machine";
       }
     }
   }
   return {
     mLW: moveway,
     mLL: movelevel,
+    qGE: qualifiedmovegensname,
   };
 }
 
@@ -187,13 +179,14 @@ function getMove({ pokemonObject }: PokemonStatProps, getter: string) {
     const findMVV = getMoveLearnWay(moveObject);
     const mLW = findMVV.mLW;
     const mLL = findMVV.mLL;
+    const mQG = findMVV.qGE;
     useEffect(() => {
-      if (mLW === "others") {
+      if (mLW === "") {
         return;
       }
       const moveUrl = move.url; //https://pokeapi.co/api/v2/move/550/
       let ignore = false;
-      if (mLW === "level-up") {
+      if (mLW.includes("level-up")) {
         fetch(moveUrl)
           .then((res) => res.json())
           .then((data) => {
@@ -210,7 +203,8 @@ function getMove({ pokemonObject }: PokemonStatProps, getter: string) {
               setMoveLevelData((prevData) => [...prevData, newData]);
             }
           });
-      } else if (mLW === "machine") {
+      }
+      if (mLW.includes("machine")) {
         fetch(moveUrl)
           .then((res) => res.json())
           .then((data) => {
@@ -376,6 +370,7 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
             )}
           </tbody>
         </table>
+        ver. {qualifiedmovegensname}
       </div>
     );
   }
@@ -401,10 +396,7 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
     },
   });
   return (
-    <div
-      id="moveByMachineList"
-      className="hidden flex-col w-full text-2xl"
-    >
+    <div id="moveByMachineList" className="hidden flex-col w-full text-2xl">
       Machine moves:
       <table className="w-full mt-2 block overflow-x-auto whitespace-nowrap">
         <thead className="bg-zinc-700 w-full text-center ">
@@ -462,6 +454,7 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
           )}
         </tbody>
       </table>
+        ver. {qualifiedmovegensname}
     </div>
   );
 }

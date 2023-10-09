@@ -1,13 +1,15 @@
 
 goals:
-1.中文查詢
-2.屬性查詢
-5.side bar for (2.) page
-7.RWD
-8. render after fetched all moves
+
+中文查詢
+屬性查詢
+side bar for up 2 page
+有些人沒有技能
 
 
 
 done:
-3.進化退化連接 done - 1008
-6.把movebylvl & moveby machine 放進move-show 只讀取一次api, 顯示一個 其餘時間隱藏 -1008
+進化退化連接 done - 1008
+把movebylvl & moveby machine 放進move-show 只讀取一次api, 顯示一個 其餘時間隱藏 -1008
+RWD - 1009
+ render after fetched all moves - 1009
