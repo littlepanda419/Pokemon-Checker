@@ -137,7 +137,10 @@ label:has(input[type="radio"]:checked) {
 }
 
 @media (min-width: 0px) {
-  table{
+  label:has(input[type="radio"]:checked) {
+    @apply bg-[#5865f2] text-white;
+  }
+  table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
@@ -148,7 +151,10 @@ label:has(input[type="radio"]:checked) {
   }
 }
 @media (min-width: 768px) {
-  table{
+  label:has(input[type="radio"]:checked) {
+    @apply bg-[#5865f2] text-white;
+  }
+  table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
@@ -159,6 +165,9 @@ label:has(input[type="radio"]:checked) {
   }
 }
 @media (min-width: 1024px) {
+  label:has(input[type="radio"]:checked) {
+    @apply bg-[#5865f2] text-white;
+  }
   th,
   td {
     font-size: 20px;

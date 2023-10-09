@@ -57,12 +57,8 @@ export function PokemonMoveShow({ pokemonObject }: PokemonStatProps) {
   }
   return (
     <>
-      <div id="moveByLevelList" className="inline-flex flex-col w-full ">
-        <PokemonMovebylevel pokemonObject={pokemonObject} />
-      </div>
-      <div id="moveByMachineList" className="hidden flex-col w-full ">
-        <PokemonMovebymachine pokemonObject={pokemonObject} />
-      </div>
+      <PokemonMovebylevel pokemonObject={pokemonObject} />
+      <PokemonMovebymachine pokemonObject={pokemonObject} />
     </>
   );
 }
@@ -267,7 +263,7 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
       setLoading(false);
     }, 1500);
     return (
-      <div className="text-xl w-full">
+      <div className="w-full text-2xl">
         Level up moves:
         <div className="grid grid-cols-8 gap-2 px-5 mt-2 animate-pulse">
           <div className="h-3 rounded-full bg-gray-500  mb-4"></div>
@@ -318,19 +314,22 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
     );
   } else {
     return (
-      <div className="text-xl w-full">
+      <div
+        id="moveByLevelList"
+        className="inline-flex flex-col w-full text-2xl"
+      >
         Level up moves:
-        <table className="text-xl w-full mt-2">
+      <table className="w-full mt-2 block overflow-x-auto whitespace-nowrap">
           <thead className="bg-zinc-700 w-full text-center ">
             {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id} className="">
+              <tr key={headerGroup.id} className="w-screen ">
                 {headerGroup.headers.map((header) =>
                   (() => {
                     const gis = header.column.getIsSorted();
                     return (
                       <th
                         key={header.id}
-                        className="p-1 min-w-[75px]"
+                        className="p-1 min-w-[75px] w-screen text-lg pc:text-xl"
                         onClick={header.column.getToggleSortingHandler()}
                       >
                         {flexRender(
@@ -359,7 +358,7 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
                     (
                       cell //7
                     ) => (
-                      <td key={cell.id} id={cell.id} className="py-1">
+                      <td key={cell.id} id={cell.id} className="py-1 text-lg pc:text-xl">
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
@@ -397,19 +396,19 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
     },
   });
   return (
-    <div className="text-xl w-full">
+    <div id="moveByMachineList" className="hidden flex-col w-full text-2xl">
       Machine moves:
-      <table className="w-full mt-2">
-        <thead className="bg-zinc-700 w-full text-center ">
+      <table className="w-full mt-2 block overflow-x-auto whitespace-nowrap">
+        <thead className="bg-zinc-700 w-full text-center text-xl pc:text-2xl">
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id} className="">
+            <tr key={headerGroup.id} className="w-screen">
               {headerGroup.headers.map((header) =>
                 (() => {
                   const gis = header.column.getIsSorted();
                   return (
                     <th
                       key={header.id}
-                      className="p-1 min-w-[75px]"
+                      className="p-1 min-w-[75px] w-screen"
                       onClick={header.column.getToggleSortingHandler()}
                     >
                       {flexRender(
@@ -424,8 +423,8 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
             </tr>
           ))}
         </thead>
-        <tbody className="">
-          {table.getRowModel().rows.map(  
+          <tbody className="text-xl pc:text-2xl">
+          {table.getRowModel().rows.map(
             (
               row //1
             ) => (

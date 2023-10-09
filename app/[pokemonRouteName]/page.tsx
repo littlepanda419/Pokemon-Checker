@@ -15,8 +15,8 @@ import Link from "next/link";
 // localhost:3000/pikachu
 
 function getTwoID(id: number) {
-  let previousid: number=0;
-  let nextid: number=0;
+  let previousid: number = 0;
+  let nextid: number = 0;
   if (id === 1) {
     previousid = process.env.MAXID;
   } else {
@@ -39,7 +39,7 @@ export default async function PokemonPage({
   const pokemonid = pokemonObject.id;
   const pokemonname = pokemonObject.name;
   const [previousid, nextid] = getTwoID(pokemonid);
-  
+
   const pokemonpreviousname = await getPokemonName(previousid);
   const pokemonnextname = await getPokemonName(nextid);
   const pokemonchinesename = await getPokemonChineseName(
@@ -48,7 +48,7 @@ export default async function PokemonPage({
   return (
     <>
       <div id="pokemonRouteName" className="grid grid-cols-3 mt-2 text-lg">
-        <div className="text-left flex flex-row my-auto mr-auto ">
+        <div className="text-left flex flex-row my-auto mr-auto overflow-visible">
           <Link href={"/" + pokemonpreviousname} key={pokemonpreviousname}>
             ← {pokemonpreviousname}
           </Link>
@@ -64,7 +64,7 @@ export default async function PokemonPage({
             {pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
           </Link>
         </div>
-        <div className="text-right flex flex-row-reverse my-auto ml-auto">
+        <div className="text-right flex flex-row-reverse my-auto ml-auto overflow-visible">
           <Link href={"/" + pokemonnextname} key={pokemonnextname}>
             {pokemonnextname} →
           </Link>
@@ -106,21 +106,16 @@ export default async function PokemonPage({
             </div>
           </div>
         </div>
-    
+
         <div className="border pc:mx-5 mt-4 border-gray-400 pc:hidden"></div>
         <div
           id="pokemovelist"
-          className="pc:inline-flex w-full pc:w-1/2 text-center pc:justify-top pc:flex-col mx-2 mt-4"
+          className="pc:flex w-full pc:w-1/2 text-center pc:justify-top pc:flex-col mx-2 mt-4"
         >
-          <form
-            id="pokemovebutton "
-            className="mb-2 justify-center"
-          >
+          <form id="pokemovebutton " className="mb-2 justify-center">
             <PokemonMoveButton />
           </form>
-          <div id="pokemoves" className="mt-1 text-2xl w-full">
-              <PokemonMoveShow pokemonObject={pokemonObject} />
-          </div>
+          <PokemonMoveShow pokemonObject={pokemonObject} />
         </div>
       </div>
     </>
