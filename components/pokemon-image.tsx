@@ -12,8 +12,7 @@ export function PokemonImage({ image, name }: { image: string; name: string }) {
         alt={"Picture of " + name}
         priority
         fill
-        sizes="(max-width: 500px) 100vw, (max-width: 500px) 50vw, 33vw"
-        className="max-w-[400px] max-h-[400px] brightness-0 flex justify-center self-center mx-auto my-auto"
+        className="brightness-0 mx-auto my-auto"
         onLoadingComplete={(image) => {
           {
             image.classList.remove("brightness-0");

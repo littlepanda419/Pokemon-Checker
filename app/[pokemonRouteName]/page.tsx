@@ -47,13 +47,13 @@ export default async function PokemonPage({
   );
   return (
     <>
-      <div id="pokemonRouteName" className="grid grid-cols-3 mt-2 text-xl ">
+      <div id="pokemonRouteName" className="grid grid-cols-3 mt-2 text-lg">
         <div className="text-left flex flex-row my-auto mr-auto ">
           <Link href={"/" + pokemonpreviousname} key={pokemonpreviousname}>
             ← {pokemonpreviousname}
           </Link>
         </div>
-        <div className="text-3xl font-bold text-center mx-auto">
+        <div className="font-bold text-center mx-auto text-2xl">
           <Link
             href={"https://wiki.52poke.com/wiki/" + pokemonname}
             target="_blank"
@@ -73,7 +73,7 @@ export default async function PokemonPage({
 
       <div
         id="pokesplash"
-        className="relative items-center justify-center w-[400px] h-[400px] mx-auto"
+        className="relative items-center justify-center  mx-auto w-[200px] h-[200px]"
       >
         <PokemonImage
           image={pokemonObject.sprites.other["official-artwork"].front_default}
@@ -82,45 +82,44 @@ export default async function PokemonPage({
       </div>
       <div
         id="poketype"
-        className="flex justify-center content-center text-2xl mx-auto h-fit"
+        className="flex justify-center content-center mx-auto h-fit text-base"
       >
         <PokemonType pokemonObject={pokemonObject} />
       </div>
-      <div className="border mx-5 mt-4  border-gray-400"></div>
+      <div className="border pc:mx-5 mt-4 border-gray-400"></div>
 
-      <div className="flex text-2xl">
+      <div className="pc:flex">
         <div
           id="pokestatlist"
-          className="inline-flex w-1/2  mx-auto text-center justify-top flex-col border-r px-2"
+          className="pc:inline-flex w-full pc:w-1/2 mx-auto text-center pc:justify-top flex-col pc:border-r px-2 text-lg"
         >
-          <div className="mt-4">
+          <div className="pc:mt-4 w-full mt-2">
             <PokemonStat pokemonObject={pokemonObject} />
           </div>
 
           <div
             id="pokeevlist"
-            className="text-center justify-center border-t mt-4"
+            className="text-center justify-center border-t mt-4 mx-4"
           >
-            <div className="mt-4">
+            <div className="mt-2 pc:mt-4">
               <PokemonEv pokemonObject={pokemonObject} />
             </div>
           </div>
         </div>
-
+    
+        <div className="border pc:mx-5 mt-4 border-gray-400 pc:hidden"></div>
         <div
           id="pokemovelist"
-          className="inline-flex  w-1/2 text-center justify-top flex-col mx-2"
+          className="pc:inline-flex w-full pc:w-1/2 text-center pc:justify-top pc:flex-col mx-2 mt-4"
         >
           <form
-            id="pokemovebutton"
-            className="mt-4 mb-2 text-2xl justify-center"
+            id="pokemovebutton "
+            className="mb-2 justify-center"
           >
             <PokemonMoveButton />
           </form>
-          <div id="pokemoves" className="mt-1">
-            <div className="">
+          <div id="pokemoves" className="mt-1 text-2xl w-full">
               <PokemonMoveShow pokemonObject={pokemonObject} />
-            </div>
           </div>
         </div>
       </div>

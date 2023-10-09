@@ -60,7 +60,7 @@ export function PokemonMoveShow({ pokemonObject }: PokemonStatProps) {
       <div id="moveByLevelList" className="inline-flex flex-col w-full ">
         <PokemonMovebylevel pokemonObject={pokemonObject} />
       </div>
-      <div id="moveByMachineList" className="inline-flex flex-col w-full ">
+      <div id="moveByMachineList" className="hidden flex-col w-full ">
         <PokemonMovebymachine pokemonObject={pokemonObject} />
       </div>
     </>
@@ -72,7 +72,7 @@ export function PokemonMoveButton() {
   useEffect(() => {
     const machineList = document.querySelector("#moveByMachineList");
     if (machineList) {
-      machineList.classList.add("hidden");
+      machineList.classList.add("inline-flex");
     }
   }, []);
 
@@ -104,7 +104,7 @@ export function PokemonMoveButton() {
 
   return (
     <>
-      <label className="px-4 py-2 text-gray-300 bg-gray-500 hover:bg-gray-400 hover:text-white rounded-l-2xl border-r border-white ">
+      <label className="px-4 py-2 text-gray-300 bg-gray-500 hover:bg-gray-400 hover:text-white rounded-l-2xl border-r border-white text-xl">
         <input
           className="hidden"
           type="radio"
@@ -116,7 +116,7 @@ export function PokemonMoveButton() {
         />
         Level-up
       </label>
-      <label className="px-4 py-2 text-gray-300 bg-gray-500 hover:bg-gray-400 hover:text-white rounded-r-2xl border-l border-white ">
+      <label className="px-4 py-2 text-gray-300 bg-gray-500 hover:bg-gray-400 hover:text-white rounded-r-2xl border-l border-white text-xl">
         <input
           className="hidden"
           type="radio"
@@ -267,7 +267,7 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
       setLoading(false);
     }, 1500);
     return (
-      <>
+      <div className="text-xl w-full">
         Level up moves:
         <div className="grid grid-cols-8 gap-2 px-5 mt-2 animate-pulse">
           <div className="h-3 rounded-full bg-gray-500  mb-4"></div>
@@ -314,14 +314,14 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
           <div className="h-3 rounded-full bg-gray-500  mb-4"></div>
           <div className="h-3 rounded-full bg-gray-500  mb-4"></div>
         </div>
-      </>
+      </div>
     );
   } else {
     return (
-      <>
+      <div className="text-xl w-full">
         Level up moves:
         <table className="text-xl w-full mt-2">
-          <thead className="bg-zinc-700 w-full  text-center ">
+          <thead className="bg-zinc-700 w-full text-center ">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id} className="">
                 {headerGroup.headers.map((header) =>
@@ -330,7 +330,7 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
                     return (
                       <th
                         key={header.id}
-                        className="p-1 min-w-[75px] "
+                        className="p-1 min-w-[75px]"
                         onClick={header.column.getToggleSortingHandler()}
                       >
                         {flexRender(
@@ -372,7 +372,7 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
             )}
           </tbody>
         </table>
-      </>
+      </div>
     );
   }
 }
@@ -397,10 +397,10 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
     },
   });
   return (
-    <>
+    <div className="text-xl w-full">
       Machine moves:
-      <table className="text-xl w-full mt-2">
-        <thead className="bg-zinc-700 w-full  text-center ">
+      <table className="w-full mt-2">
+        <thead className="bg-zinc-700 w-full text-center ">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id} className="">
               {headerGroup.headers.map((header) =>
@@ -409,7 +409,7 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
                   return (
                     <th
                       key={header.id}
-                      className="p-1 min-w-[75px] "
+                      className="p-1 min-w-[75px]"
                       onClick={header.column.getToggleSortingHandler()}
                     >
                       {flexRender(
@@ -425,7 +425,7 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
           ))}
         </thead>
         <tbody className="">
-          {table.getRowModel().rows.map(
+          {table.getRowModel().rows.map(  
             (
               row //1
             ) => (
@@ -451,6 +451,6 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
           )}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
