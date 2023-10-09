@@ -1,6 +1,10 @@
-declare global {
-  var g_maxid: number;
-  var g_pokemontotal: number;
-}
-
 export {};
+
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      MAXID: number;
+      ENV: "test" | "dev" | "prod";
+    }
+  }
+}

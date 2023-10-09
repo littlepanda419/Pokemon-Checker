@@ -21,12 +21,6 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
     );
   };
 
-  const id: number = parseInt(
-    pokemonList[pokemonList.length - 1].url.split("/")[6]
-  );
-  global.g_maxid = id;
-  global.g_pokemontotal = pokemonList.length;
-
   // save the filtered array of objects
   const filteredPokemonList = searchFilter(pokemonList);
   // show the filtered array to user
@@ -52,7 +46,10 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
       <div className="mx-20 grid text-center lg:grid-cols-3 lg:text-center">
         {filteredPokemonList.map((pokemon: any) => {
           return (
-            <PokemonCard name={pokemon.name} key={pokemon.name + "Card"} />
+            <PokemonCard
+              name={pokemon.name}
+              key={pokemon.name + "Card"}
+            />
           );
         })}
       </div>
