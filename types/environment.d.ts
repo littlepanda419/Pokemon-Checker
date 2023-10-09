@@ -1,6 +1,6 @@
 declare global {
-  var _maxid: number;
-  var _pokemontotal: number;
+  var g_maxid: number;
+  var g_pokemontotal: number;
 }
 
 export {};

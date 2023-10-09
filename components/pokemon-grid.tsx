@@ -24,8 +24,8 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
   const id: number = parseInt(
     pokemonList[pokemonList.length - 1].url.split("/")[6]
   );
-  global._maxid = id;
-  global._pokemontotal = pokemonList.length;
+  global.g_maxid = id;
+  global.g_pokemontotal = pokemonList.length;
 
   // save the filtered array of objects
   const filteredPokemonList = searchFilter(pokemonList);

@@ -17,13 +17,13 @@ import Link from "next/link";
 function getTwoID(id: number) {
   let previousid: number=0;
   let nextid: number=0;
-  console.log("before",id, typeof id,id === 1,previousid,nextid,typeof global._maxid,global._maxid)
+  console.log("before",id, typeof id,id === 1,previousid,nextid,typeof global.g_maxid,global.g_maxid)
   if (id === 1) {
-    previousid = global._maxid;
+    previousid = global.g_maxid;
   } else {
     previousid = id - 1;
   }
-  if (id >= global._maxid) {
+  if (id >= global.g_maxid) {
     nextid = 1;
   } else {
     nextid = id + 1;
