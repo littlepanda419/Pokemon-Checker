@@ -9,3 +9,9 @@ declare global {
     }
   }
 }
+
+declare global {
+  interface Window {
+    env: any
+  }
+}

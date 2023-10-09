@@ -45,7 +45,6 @@ export default async function PokemonPage({
   const pokemonchinesename = await getPokemonChineseName(
     pokemonObject.species.url
   );
-  // mr-auto my-auto inline-flex flex-row
   return (
     <>
       <div id="pokemonRouteName" className="grid grid-cols-3 mt-2 text-xl ">

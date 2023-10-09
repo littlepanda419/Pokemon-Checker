@@ -7,7 +7,7 @@ interface PokemonCardProps {
 
 // <PokemonCard name="pikachu" />
 
-export function PokemonCard({ name }: PokemonCardProps) {
+export function PokemonCard({ name }: PokemonCardProps,) {
   return (
     <Link
       href={name}
