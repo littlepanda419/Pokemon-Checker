@@ -1,7 +1,6 @@
 
 import Link from "next/link";
 
-//<meta http-equiv="refresh" content="0; url=/types/normal" />
 export default function PokemonTypePage() {
     return(
         <>

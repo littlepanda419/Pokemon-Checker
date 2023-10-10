@@ -132,39 +132,26 @@ body {
   border-color: #840f84;
 }
 
+select option:first-child {
+  background-color: #4e5457;
+  border-color: #4e5457;
+}
+label:has(input[type="radio"]:checked) {
+  @apply bg-[#5865f2] text-white;
+}
 @media (min-width: 0px) and (max-width: 767px) {
-  label:has(input[type="radio"]:checked) {
-    @apply bg-[#5865f2] text-white;
-  }
-  #typeTable thead {
-    display: none;
-  }
-  
-  #typeTable tr {
-    display: block;
-  }
-  
   #typeTable td {
     position: relative;
     display: block;
-    font-size: .8em;
     text-align: right;
   }
-  
   #typeTable td::before {
     position: absolute;
     left: 10px;
     content: attr(data-label);
-    font-weight: bold;
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  label:has(input[type="radio"]:checked) {
-    @apply bg-[#5865f2] text-white;
-  }
 }
-@media (min-width: 1024px ) {
-  label:has(input[type="radio"]:checked) {
-    @apply bg-[#5865f2] text-white;
-  }
+@media (min-width: 1024px) {
 }

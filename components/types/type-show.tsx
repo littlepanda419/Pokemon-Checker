@@ -5,7 +5,7 @@ type PokemonTypeProps = {
 };
 
 const allTypes: string[] = [
-  "normal",
+  "Normal",
   "fighting",
   "flying",
   "poison",
@@ -30,16 +30,15 @@ export function PokemonShowType(
 ) {
   return (
     <>
-      <form className="mx-auto text-center my-2">
-        <label htmlFor="type">Type Checker: </label>
+      <form className="mx-auto text-center my-5 ">
+        <label htmlFor="type" className="text-xl pad:text-2xl">Type Checker: </label>
         <select
           id="typesele"
           name="typesele"
-          className="text-black"
-          defaultValue={typeRouteName || "Select"}
+          className="text-black overflow-y-scroll h-fit text-xl pad:text-2xl"
+          defaultValue={typeRouteName}
           onChange={(e) => {
-            console.log(e.target.value);
-            window.location.href = e.target.value;
+            window.location.href = e.target.value.toLowerCase();
           }}
         >
           {allTypes.map((type: string) => (
@@ -49,15 +48,15 @@ export function PokemonShowType(
               id={"type" + type}
               className="text-white"
             >
-              {type}
+            {type.charAt(0).toUpperCase() + type.slice(1)}
             </option>
           ))}
         </select>
       </form>
-      <div className="text-center mx-auto w-fit" id={"type" + typeRouteName}>
-        {typeRouteName}
+      <div className="text-center mx-auto w-fit text-2xl pad:text-3xl rounded-full py-2 px-3 pad:py-4 pad:px-6 my-3" id={"type" + typeRouteName}>
+            {typeRouteName.charAt(0).toUpperCase() + typeRouteName.slice(1)}
         <br />
-        {pokemonTypeChineseName}
+        {pokemonTypeChineseName}系
       </div>
     </>
   );

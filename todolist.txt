@@ -1,10 +1,9 @@
 
 goals:
 
-中文查詢
-屬性查詢
+中文查詢 
 side bar for up 2 page
-有些人沒有技能
+
 
 
 
@@ -12,4 +11,5 @@ done:
 進化退化連接 done - 1008
 把movebylvl & moveby machine 放進move-show 只讀取一次api, 顯示一個 其餘時間隱藏 -1008
 RWD - 1009
- render after fetched all moves - 1009
+render after fetched all moves - 1009
+屬性查詢 & RWD - 1010

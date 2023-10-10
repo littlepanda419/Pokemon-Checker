@@ -32,20 +32,13 @@ export default async function PokemonTypePage({
     "fairy",
     " ",
   ];
-  if (allTypes.includes(typeRouteName) === false) {
+  if (allTypes.includes(typeRouteName.toLocaleLowerCase()) === false) {
     throw new Error("please enter a valid type!");
   }
   const pokemonTypeObject = await getPokemonType(typeRouteName);
   const pokemonTypeChineseName = pokemonTypeObject.names.find(
     (nameInLang: any) => nameInLang.language.name === "zh-Hant"
   ).name;
-
-  if (typeRouteName === " ") {
-    return(
-      <>test</>
-    )
-    
-  }
   return (
     <>
       <PokemonShowType typeRouteName={typeRouteName} pokemonTypeChineseName={pokemonTypeChineseName} />
