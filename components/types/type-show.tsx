@@ -35,7 +35,7 @@ export function PokemonShowType(
         <select
           id="typesele"
           name="typesele"
-          className="text-black overflow-y-scroll h-fit text-xl pad:text-2xl"
+          className="text-black overflow-y-scroll h-fit text-xl pad:text-2xl max-h-[50%] pad:max-h-[100%] max-w-[30%] pad:max-w-[100%]"
           defaultValue={typeRouteName}
           onChange={(e) => {
             window.location.href = e.target.value.toLowerCase();
