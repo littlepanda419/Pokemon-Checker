@@ -35,7 +35,12 @@ export default async function PokemonPage({
   params: { pokemonRouteName: string };
 }) {
   const { pokemonRouteName } = params; // pikachu
-  const pokemonObject = await getPokemon(pokemonRouteName); // get the API data for pikachu
+  let pokemonObject: any;
+  try {
+    pokemonObject = await getPokemon(pokemonRouteName); // get the API data for pikachu
+  } catch (error) {
+    throw new Error("please enter a valid pokemon name or id!");
+  }
   const pokemonid = pokemonObject.id;
   const pokemonname = pokemonObject.name;
   const [previousid, nextid] = getTwoID(pokemonid);
@@ -99,8 +104,9 @@ export default async function PokemonPage({
 
           <div
             id="pokeevlist"
-            className="text-center justify-center border-t mt-4 mx-4 "
+            className="text-center justify-center mt-4 mx-4  "
           >
+            <div className="border border-gray-400 w-1/2 mx-auto "></div>
             <div className="mt-2 pc:mt-4 text-lg pad:text-xl pc:text-xl">
               <PokemonEv pokemonObject={pokemonObject} />
             </div>
