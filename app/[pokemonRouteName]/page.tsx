@@ -36,12 +36,7 @@ export default async function PokemonPage({
 }) {
   const { pokemonRouteName } = params; // pikachu
   let pokemonObject: any;
-  console.log(pokemonRouteName,pokemonRouteName === "types")
-    if (pokemonRouteName === "types") {
-      if (typeof window !== "undefined") {
-      window.location.href = "/types/normal";
-    }
-  }
+  
   try {
     pokemonObject = await getPokemon(pokemonRouteName); // get the API data for pikachu
   } catch (error) {
