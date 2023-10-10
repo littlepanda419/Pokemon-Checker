@@ -167,11 +167,11 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypeProps) {
                 <th
                   id={"type" + noDamagefrom.name}
                   key={
-                    noDamagefrom.name.charAt(0)
+                    noDamagefrom.name
                   }
                   className="w-1/3 pad:w-[80px] text-xl "
                 >
-                  <Link href={noDamagefrom.name}>{noDamagefrom.name.toUpperCase() +
+                  <Link href={noDamagefrom.name}>{noDamagefrom.name.charAt(0).toUpperCase() +
                     noDamagefrom.name.slice(1)}</Link>
                 </th>
               )
