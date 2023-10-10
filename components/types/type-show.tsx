@@ -1,5 +1,4 @@
 "use client";
-import { TypeAsAttacker, TypeAsDefender } from "@/components/types/type-list";
 type PokemonTypeProps = {
   typeRouteName: string,
   pokemonTypeChineseName: string,

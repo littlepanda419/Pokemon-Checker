@@ -30,7 +30,7 @@ export default async function PokemonTypePage({
     "dragon",
     "dark",
     "fairy",
-    ""
+    " ",
   ];
   if (allTypes.includes(typeRouteName) === false) {
     throw new Error("please enter a valid type!");
@@ -40,7 +40,7 @@ export default async function PokemonTypePage({
     (nameInLang: any) => nameInLang.language.name === "zh-Hant"
   ).name;
 
-  if (typeRouteName === "") {
+  if (typeRouteName === " ") {
     return(
       <>test</>
     )

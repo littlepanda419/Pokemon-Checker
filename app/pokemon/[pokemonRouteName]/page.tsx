@@ -55,7 +55,7 @@ export default async function PokemonPage({
     <>
       <div id="pokemonRouteName" className="grid grid-cols-3 mt-2 text-lg">
         <div className="text-left flex flex-row my-auto mr-auto  text-base pad:text-xl pad:font-medium">
-          <Link href={"/" + pokemonpreviousname} key={pokemonpreviousname}>
+          <Link href={"/pokemon/" + pokemonpreviousname} key={pokemonpreviousname}>
             ← {pokemonpreviousname}
           </Link>
         </div>
@@ -71,7 +71,7 @@ export default async function PokemonPage({
           </Link>
         </div>
         <div className="text-right flex flex-row-reverse my-auto ml-auto  text-base pad:text-xl pad:font-medium">
-          <Link href={"/" + pokemonnextname} key={pokemonnextname}>
+          <Link href={"/pokemon/" + pokemonnextname} key={pokemonnextname}>
             {pokemonnextname} →
           </Link>
         </div>
