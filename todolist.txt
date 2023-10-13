@@ -2,7 +2,6 @@
 goals:
 
 中文查詢 
-side bar for up 2 page
 
 
 
@@ -13,3 +12,4 @@ done:
 RWD - 1009
 render after fetched all moves - 1009
 屬性查詢 & RWD - 1010
+side bar for up 2 page -1013

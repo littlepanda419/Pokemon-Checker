@@ -1,12 +1,13 @@
 import "./globals.css";
+import { SideBar } from "@/components/sidebar/sidebar";
 
 // here I imported the font I want to use, even with this method I can use other fonts in other parts in the same way
-import { inter } from "@/types/fonts"; 
-
+import { inter } from "@/types/fonts";
 export const metadata = {
   title: "Poke Checker Made by Panda",
 };
 
+//<a href="/types/normal" className="w-0">types</a>
 export default function RootLayout({
   children,
 }: {
@@ -17,7 +18,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <main className="mx-[2%] my-[2%]">
           <div className="inline-flex w-full justify-between align-middle">
-            <a href="/types/normal" className="w-0">types</a>
+            <div className="w-0 h-0">
+              <SideBar></SideBar>
+            </div>
+
             <a
               href="/"
               className=" text-2xl font-bold border-4 rounded-full w-fit mx-auto text-center text-yellow-400 border-blue-600 p-2  
@@ -25,7 +29,6 @@ export default function RootLayout({
             >
               Pokemon Checker
             </a>
-            
           </div>
           {children}
         </main>
