@@ -17,7 +17,7 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
 
   const searchFilter = (pokemonList: any) => {
     return pokemonList.filter((pokemon: any) =>
-      pokemon.name.toLowerCase().includes(searchText.toLowerCase())
+      pokemon.name.toLowerCase().includes(searchText.toLowerCase()),
     );
   };
 
@@ -40,16 +40,15 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
           />
         </div>
       </div>
-      <div className="text-xl text-center my-3 mx-auto pad:text-2xl  pc:text-3xl">Pokédex</div>
+      <div className="text-xl text-center my-3 mx-auto pad:text-2xl  pc:text-3xl">
+        Pokédex
+      </div>
       <div className="mx-5 border-t border-white flex-auto my-2 pad:mx-10 pc:mx-20"></div>
 
       <div className="mx-5 grid text-center grid-cols-2  pad:grid-cols-3 pad:mx-10 pc:mx-20">
         {filteredPokemonList.map((pokemon: any) => {
           return (
-            <PokemonCard
-              name={pokemon.name}
-              key={pokemon.name + "Card"}
-            />
+            <PokemonCard name={pokemon.name} key={pokemon.name + "Card"} />
           );
         })}
       </div>

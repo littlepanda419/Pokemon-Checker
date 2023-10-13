@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        'pad': '768px',
-        'pc': '1024px',
+        pad: "768px",
+        pc: "1024px",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -28,8 +28,7 @@ const config: Config = {
         whosthatpokemon: "whosthatpokemon 3s linear",
       },
     },
-    screens: {
-    },
+    screens: {},
   },
   plugins: [],
 };

@@ -36,7 +36,7 @@ export default async function PokemonPage({
 }) {
   const { pokemonRouteName } = params; // pikachu
   let pokemonObject: any;
-  
+
   try {
     pokemonObject = await getPokemon(pokemonRouteName); // get the API data for pikachu
   } catch (error) {
@@ -49,13 +49,16 @@ export default async function PokemonPage({
   const pokemonpreviousname = await getPokemonName(previousid);
   const pokemonnextname = await getPokemonName(nextid);
   const pokemonchinesename = await getPokemonChineseName(
-    pokemonObject.species.url
+    pokemonObject.species.url,
   );
   return (
     <>
       <div id="pokemonRouteName" className="grid grid-cols-3 mt-2 text-lg">
         <div className="text-left flex flex-row my-auto mr-auto  text-base pad:text-xl pad:font-medium">
-          <Link href={"/pokemon/" + pokemonpreviousname} key={pokemonpreviousname}>
+          <Link
+            href={"/pokemon/" + pokemonpreviousname}
+            key={pokemonpreviousname}
+          >
             ← {pokemonpreviousname}
           </Link>
         </div>

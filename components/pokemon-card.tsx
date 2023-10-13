@@ -10,7 +10,7 @@ interface PokemonCardProps {
 export function PokemonCard({ name }: PokemonCardProps) {
   return (
     <Link
-      href={"/pokemon/"+name}
+      href={"/pokemon/" + name}
       className="rounded-lg border-2 m-3 p-2 hover:bg-neutral-800 hover:border-neutral-600 shadow-[2px_2px_0px_0px_rgba(255,255,128,0.8)]
                   pad:m-3 pad:p-4 pad:shadow-[3px_3px_0px_0px_rgba(255,255,128,0.8)]
                   pc:m-4 pc:p-4 pc:shadow-[5px_5px_0px_0px_rgba(255,255,128,0.8)]"

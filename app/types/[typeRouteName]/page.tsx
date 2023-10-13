@@ -1,4 +1,3 @@
-
 import { getPokemonType } from "@/lib/pokeapi";
 import { PokemonShowType } from "@/components/types/type-show";
 import { TypeAsAttacker, TypeAsDefender } from "@/components/types/type-list";
@@ -37,12 +36,15 @@ export default async function PokemonTypePage({
   }
   const pokemonTypeObject = await getPokemonType(typeRouteName);
   const pokemonTypeChineseName = pokemonTypeObject.names.find(
-    (nameInLang: any) => nameInLang.language.name === "zh-Hant"
+    (nameInLang: any) => nameInLang.language.name === "zh-Hant",
   ).name;
   return (
     <>
-      <PokemonShowType typeRouteName={typeRouteName} pokemonTypeChineseName={pokemonTypeChineseName} />
-      
+      <PokemonShowType
+        typeRouteName={typeRouteName}
+        pokemonTypeChineseName={pokemonTypeChineseName}
+      />
+
       <TypeAsAttacker pokemonTypeObject={pokemonTypeObject} />
       <TypeAsDefender pokemonTypeObject={pokemonTypeObject} />
     </>

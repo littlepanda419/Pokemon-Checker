@@ -132,7 +132,7 @@ const ArrowWay: Record<SortDirection, string> = {
   desc: " ↓",
 };
 function isSortDirection(
-  value: SortDirection | boolean
+  value: SortDirection | boolean,
 ): value is SortDirection {
   return typeof value === "string" && ["asc", "desc"].includes(value);
 }
@@ -141,11 +141,11 @@ let qualifiedmovegensname: string = "";
 let longestitem: number = 0;
 function getqualifiedmovegensname(moveObject: any) {
   let movegens = moveObject.version_group_details;
-    if (longestitem < movegens.length) {
-      longestitem = movegens.length;
-      qualifiedmovegensname = movegens[movegens.length-1].version_group.name;
-    }
-    longestitem=0;
+  if (longestitem < movegens.length) {
+    longestitem = movegens.length;
+    qualifiedmovegensname = movegens[movegens.length - 1].version_group.name;
+  }
+  longestitem = 0;
   return qualifiedmovegensname;
 }
 function getMoveLearnWay(moveObject: any) {
@@ -330,12 +330,12 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
                       >
                         {flexRender(
                           header.column.columnDef.header,
-                          header.getContext()
+                          header.getContext(),
                         )}
                         {isSortDirection(gis) ? ArrowWay[gis] : null}
                       </th>
                     );
-                  })()
+                  })(),
                 )}
               </tr>
             ))}
@@ -343,7 +343,7 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
           <tbody className="">
             {table.getRowModel().rows.map(
               (
-                row //1
+                row, //1
               ) => (
                 <tr
                   key={row.id}
@@ -352,7 +352,7 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
                 >
                   {row.getVisibleCells().map(
                     (
-                      cell //7
+                      cell, //7
                     ) => (
                       <td
                         key={cell.id}
@@ -361,13 +361,13 @@ export function PokemonMovebylevel({ pokemonObject }: PokemonStatProps) {
                       >
                         {flexRender(
                           cell.column.columnDef.cell,
-                          cell.getContext()
+                          cell.getContext(),
                         )}
                       </td>
-                    )
+                    ),
                   )}
                 </tr>
-              )
+              ),
             )}
           </tbody>
         </table>
@@ -414,12 +414,12 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
                     >
                       {flexRender(
                         header.column.columnDef.header,
-                        header.getContext()
+                        header.getContext(),
                       )}
                       {isSortDirection(gis) ? ArrowWay[gis] : null}
                     </th>
                   );
-                })()
+                })(),
               )}
             </tr>
           ))}
@@ -427,7 +427,7 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
         <tbody className="">
           {table.getRowModel().rows.map(
             (
-              row //1
+              row, //1
             ) => (
               <tr
                 key={row.id}
@@ -436,7 +436,7 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
               >
                 {row.getVisibleCells().map(
                   (
-                    cell //7
+                    cell, //7
                   ) => (
                     <td
                       key={cell.id}
@@ -445,17 +445,17 @@ export function PokemonMovebymachine({ pokemonObject }: PokemonStatProps) {
                     >
                       {flexRender(
                         cell.column.columnDef.cell,
-                        cell.getContext()
+                        cell.getContext(),
                       )}
                     </td>
-                  )
+                  ),
                 )}
               </tr>
-            )
+            ),
           )}
         </tbody>
       </table>
-        gen. {qualifiedmovegensname}
+      gen. {qualifiedmovegensname}
     </div>
   );
 }

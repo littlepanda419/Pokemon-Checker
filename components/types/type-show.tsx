@@ -1,7 +1,7 @@
 "use client";
 type PokemonTypeProps = {
-  typeRouteName: string,
-  pokemonTypeChineseName: string,
+  typeRouteName: string;
+  pokemonTypeChineseName: string;
 };
 
 const allTypes: string[] = [
@@ -25,13 +25,16 @@ const allTypes: string[] = [
   "fairy",
 ];
 
-export function PokemonShowType(
-  {typeRouteName,pokemonTypeChineseName }: PokemonTypeProps,
-) {
+export function PokemonShowType({
+  typeRouteName,
+  pokemonTypeChineseName,
+}: PokemonTypeProps) {
   return (
     <>
       <form className="mx-auto text-center my-5 ">
-        <label htmlFor="type" className="text-xl pad:text-2xl">Type Checker: </label>
+        <label htmlFor="type" className="text-xl pad:text-2xl">
+          Type Checker:{" "}
+        </label>
         <select
           id="typesele"
           name="typesele"
@@ -48,13 +51,16 @@ export function PokemonShowType(
               id={"type" + type}
               className="text-white"
             >
-            {type.charAt(0).toUpperCase() + type.slice(1)}
+              {type.charAt(0).toUpperCase() + type.slice(1)}
             </option>
           ))}
         </select>
       </form>
-      <div className="text-center mx-auto w-fit text-2xl pad:text-3xl rounded-full py-2 px-3 pad:py-4 pad:px-6 my-3" id={"type" + typeRouteName}>
-            {typeRouteName.charAt(0).toUpperCase() + typeRouteName.slice(1)}
+      <div
+        className="text-center mx-auto w-fit text-2xl pad:text-3xl rounded-full py-2 px-3 pad:py-4 pad:px-6 my-3"
+        id={"type" + typeRouteName}
+      >
+        {typeRouteName.charAt(0).toUpperCase() + typeRouteName.slice(1)}
         <br />
         {pokemonTypeChineseName}系
       </div>
