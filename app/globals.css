@@ -202,7 +202,6 @@ label:has(input[type="radio"]:checked) {
     left: 0;
     transition: 200ms;
   }
-
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -222,7 +221,6 @@ label:has(input[type="radio"]:checked) {
     left: 0;
     transition: 300ms;
   }
-
 }
 
 @media (min-width: 1024px) {
@@ -242,5 +240,4 @@ label:has(input[type="radio"]:checked) {
     left: 0;
     transition: 300ms;
   }
-
 }
