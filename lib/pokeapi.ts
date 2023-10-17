@@ -60,7 +60,7 @@ export async function getPokemonName(id: number) {
 }
 
 export async function getPokemonType(type: string) {
-  const response = await fetch(POKEMON_API + "type/" + type);
+  const response = await fetch(POKEMON_API + "type/" + type);//https://pokeapi.co/api/v2/type/normal
   const data = await response.json();
   return data;
 }
