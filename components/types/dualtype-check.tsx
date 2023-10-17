@@ -131,22 +131,18 @@ export function DoubleType2({ set2 }: FunctionPropTyp2) {
     </form>
   );
 }
-export function DoubleTypeCheck({ move, type1, type2 }: TypeProps) {    
+export function DoubleTypeCheck({ move, type1, type2 }: TypeProps) {
   if (move === "none") {
     return (
       <>
-        <td className="border-2 p-2 w-1/4">
-            -
-        </td>
+        <td className="border-2 p-2 w-1/4">-</td>
       </>
     );
   }
   let finalmultiplier = 5;
   return (
     <>
-      <td className="border-2 p-2 w-1/4">
-        {finalmultiplier}x
-      </td>
+      <td className="border-2 p-2 w-1/4">{finalmultiplier}x</td>
     </>
   );
 }

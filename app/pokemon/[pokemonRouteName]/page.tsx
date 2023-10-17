@@ -49,7 +49,7 @@ export default async function PokemonPage({
   const pokemonpreviousname = await getPokemonName(previousid);
   const pokemonnextname = await getPokemonName(nextid);
   const pokemonchinesename = await getPokemonChineseName(
-    pokemonObject.species.url
+    pokemonObject.species.url,
   );
   return (
     <>

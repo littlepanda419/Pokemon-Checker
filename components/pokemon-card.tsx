@@ -1,9 +1,9 @@
 import Link from "next/link";
 // pikachu, -> localhost:3000/pikachu
 
-type PokemonCardProps ={
+type PokemonCardProps = {
   name: string;
-}
+};
 
 // <PokemonCard name="pikachu" />
 
