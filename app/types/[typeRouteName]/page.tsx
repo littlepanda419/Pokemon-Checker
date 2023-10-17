@@ -1,7 +1,6 @@
 import { getPokemonType } from "@/lib/pokeapi";
 import { PokemonShowType } from "@/components/types/type-show";
 import { TypeAsAttacker, TypeAsDefender } from "@/components/types/type-list";
-import Link from "next/link";
 // localhost:3000/types/normal
 
 export default async function PokemonTypePage({

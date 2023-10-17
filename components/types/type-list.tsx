@@ -30,7 +30,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypeProps) {
     <>
       <table id="typeTable" className="text-center mx-auto w-[75%] pad:w-[90%]">
         <caption className="text-xl pad:text-2xl my-2">
-          As a Attacker to:
+          Dealt damage to:
         </caption>
         <thead className="hidden pad:table-header-group pad:border-2 ">
           <tr>
@@ -140,7 +140,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypeProps) {
       <div className="border-2 border-blue-400 w-2/3 mx-auto my-5 pad:border-0 pad:my-8"></div>
       <table id="typeTable" className="text-center mx-auto w-[75%] pad:w-[90%]">
         <caption className="text-xl pad:text-2xl my-2">
-          As a Defender Against:
+          Take damage from:
         </caption>
         <thead className="hidden pad:table-header-group pad:border-2">
           <tr>

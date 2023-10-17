@@ -4,10 +4,9 @@ import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
-interface PokemonGridProps {
+type PokemonGridProps ={
   pokemonList: any;
 }
-
 export function PokemonGrid({ pokemonList }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");
 

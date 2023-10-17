@@ -194,8 +194,8 @@ label:has(input[type="radio"]:checked) {
     justify-content: center;
     position: fixed;
     top: 0;
-    left: -100%;
-    transition: 400ms;
+    left: -150%;
+    transition: 500ms;
   }
 
   .side-menu.active {
