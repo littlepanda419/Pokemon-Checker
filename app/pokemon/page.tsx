@@ -1,14 +1,12 @@
-import Link from "next/link";
+import { PokemonGrid } from "@/components/pokemon-grid";
+import { getPokemonList, getSpecialFormPokemon } from "@/lib/pokeapi";
 
-export default function PokemonTypePage() {
+export default async function Home() {
+  // Load in data.
+  const pokemonList = await getPokemonList();
   return (
     <>
-      <div className="text-center mx-auto my-[20px]">
-        <meta http-equiv="refresh" content="0; url=/" />
-        <Link href="/">
-          Redirecting to the correct page... If not, Click here
-        </Link>
-      </div>
+      <PokemonGrid pokemonList={pokemonList} />
     </>
   );
 }

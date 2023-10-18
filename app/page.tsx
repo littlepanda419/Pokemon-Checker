@@ -1,12 +1,9 @@
-import { PokemonGrid } from "@/components/pokemon-grid";
-import { getPokemonList, getSpecialFormPokemon } from "@/lib/pokeapi";
-
-export default async function Home() {
-  // Load in data.
-  const pokemonList = await getPokemonList();
+export default function Home() {
   return (
     <>
-      <PokemonGrid pokemonList={pokemonList} />
+      <div className="text-center m-10 text-5xl">
+        Welcome!
+      </div>
     </>
   );
 }
