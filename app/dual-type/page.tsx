@@ -22,6 +22,7 @@ const allTypes: string[] = [
   "fairy",
 ];
 const onetime: string[] = ["1"];
+
 export default function PokemonDualTypePage() {
   const [type1, setType1] = useState("normal");
   const [type2, setType2] = useState("normal");
@@ -45,7 +46,7 @@ export default function PokemonDualTypePage() {
           <select
             id={"typesele" + 1}
             name={"typesele" + 1}
-            className="text-black overflow-y-scroll h-fit text-xl pad:text-2xl max-h-[50%] pad:max-h-[100%] max-w-[30%] pad:max-w-[100%]"
+            className="text-black overflow-y-scroll text-xl pad:text-2xl"
             defaultValue="normal"
             onChange={(e) => {
               setType1(e.target.value);
@@ -73,7 +74,7 @@ export default function PokemonDualTypePage() {
           <select
             id={"typesele" + 2}
             name={"typesele" + 2}
-            className="text-black overflow-y-scroll h-fit text-xl pad:text-2xl max-h-[50%] pad:max-h-[100%] max-w-[30%] pad:max-w-[100%]"
+            className="text-black overflow-y-scroll text-xl pad:text-2xl"
             defaultValue="normal"
             onChange={(e) => {
               setType2(e.target.value);
@@ -100,13 +101,13 @@ export default function PokemonDualTypePage() {
 
       {domLoaded && (
         <>
-          <div className="text-center mx-auto w-1/2">
-            <table className="w-1/2 mx-auto text-xl ">
+          <div className="text-center mx-auto w-full pad:w-1/2 ">
+            <table className="w-3/4 mx-auto text-xl ">
               <caption
-                className="text-xl pad:text-2xl my-2 "
+                className="text-xl pad:text-2xl my-2"
                 id="Type1&Typ2show"
               >
-                Choose Type1 and Type2, then click the Check button
+                Choose Type1 and Type2, click the Check button.
               </caption>
               <tbody>
                 <th key="typeTH1">Type</th>
