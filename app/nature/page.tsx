@@ -1,7 +1,35 @@
+"use client";
+import React, { useState } from "react";
+import {
+  ChineseNature,
+  EnglishNature,
+} from "@/components/nature/nature-language";
+
+import * as MdIcons from "react-icons/md";
+import { IconContext } from "react-icons";
+
 export default function PokemonNaturePage() {
+  const [language, setLanguage] = useState("english"); // 默认语言为英文
+  const [isLanguageListVisible, setLanguageListVisible] = useState(false); // 控制语言列表的可见性
+
+  const handleLanguageChange = (language: string) => {
+    setLanguage(language);
+    setLanguageListVisible(false);
+  };
+
+
   return (
-    <>
-      <div className="text-center text-xl">test</div>
-    </>
+      <div className="text-center mx-auto mt-5 mb-2 text-lg pad:text-2xl">
+        <button className="mx-auto w-fit" onClick={() => setLanguageListVisible(!isLanguageListVisible)}>
+          <MdIcons.MdLanguage color="white"/></button>
+        {isLanguageListVisible && (
+          <ul className="mx-auto w-fit">
+            <li className="cursor-pointer" onClick={() => handleLanguageChange('english')}>英文 English</li>
+            <li className="cursor-pointer" onClick={() => handleLanguageChange('chinese')}>中文 Chinese</li>
+          </ul>
+        )}
+      {language === "english" && <EnglishNature />}
+      {language === "chinese" && <ChineseNature />}
+    </div>
   );
 }
