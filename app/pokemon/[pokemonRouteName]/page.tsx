@@ -7,6 +7,9 @@ import { PokemonImage } from "@/components/pokemon/pokemonpage/pokemon-image";
 import { PokemonStat } from "@/components/pokemon/pokemonpage/pokemon-stat";
 import { PokemonEv } from "@/components/pokemon/pokemonpage/pokemon-ev";
 import { PokemonType } from "@/components/pokemon/pokemonpage/pokemon-type";
+import { PokemonAbility } from "@/components/pokemon/pokemonpage/pokemon-ability";
+import { PokemonHW } from "@/components/pokemon/pokemonpage/pokemon-height_weight";
+
 import {
   PokemonMoveButton,
   PokemonMoveShow,
@@ -45,11 +48,10 @@ export default async function PokemonPage({
   const pokemonid = pokemonObject.id;
   const pokemonname = pokemonObject.name;
   const [previousid, nextid] = getTwoID(pokemonid);
-
   const pokemonpreviousname = await getPokemonName(previousid);
   const pokemonnextname = await getPokemonName(nextid);
   const pokemonchinesename = await getPokemonChineseName(
-    pokemonObject.species.url,
+    pokemonObject.species.url
   );
   return (
     <>
@@ -68,7 +70,7 @@ export default async function PokemonPage({
             target="_blank"
             key={pokemonname}
           >
-            {pokemonchinesename}
+            {pokemonObject.id}. {pokemonchinesename}
             <br></br>
             {pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
           </Link>
@@ -115,6 +117,26 @@ export default async function PokemonPage({
               <PokemonEv pokemonObject={pokemonObject} />
             </div>
           </div>
+
+          <div
+            id="pokeabilitylist"
+            className="text-center justify-center mt-4 mx-4  "
+          >
+            <div className="border border-gray-400 w-1/2 mx-auto "></div>
+            <div className="mt-2 pc:mt-4 text-lg pad:text-xl pc:text-xl">
+              <PokemonAbility pokemonObject={pokemonObject} />
+            </div>
+          </div>
+          <div
+            id="pokehwlist"
+            className="text-center justify-center mt-4 mx-4  "
+          >
+            <div className="border border-gray-400 w-1/2 mx-auto "></div>
+            <div className="mt-2 pc:mt-4 text-lg pad:text-xl pc:text-xl">
+              <PokemonHW pokemonObject={pokemonObject} />
+            </div>
+          </div>
+          
         </div>
 
         <div className="border pc:mx-5 mt-4 border-gray-400 pc:hidden"></div>
