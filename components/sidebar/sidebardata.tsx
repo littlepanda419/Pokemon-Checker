@@ -29,8 +29,15 @@ export const SideBarData = [
   },
   {
     title: "Dual-Types",
-    path: "/dual-type/",
+    path: "/dual-type",
     icon: <GiIcons.GiDoubleDragon />,
+    clasName:
+      "flex justify-start place-items-center px-10 pad:px-6 pc:px-10 py-2 h-[50px] text-xl ",
+  },
+  {
+    title: "Nature",
+    path: "/nature",
+    icon: <TbIcons.TbMoodSmile/>,
     clasName:
       "flex justify-start place-items-center px-10 pad:px-6 pc:px-10 py-2 h-[50px] text-xl ",
   },

@@ -3,14 +3,14 @@ import {
   getPokemonChineseName,
   getPokemonName,
 } from "@/lib/pokeapi";
-import { PokemonImage } from "@/components/pokemon-image";
-import { PokemonStat } from "@/components/pokemon-stat";
-import { PokemonEv } from "@/components/pokemon-ev";
-import { PokemonType } from "@/components/pokemon-type";
+import { PokemonImage } from "@/components/pokemon/pokemonpage/pokemon-image";
+import { PokemonStat } from "@/components/pokemon/pokemonpage/pokemon-stat";
+import { PokemonEv } from "@/components/pokemon/pokemonpage/pokemon-ev";
+import { PokemonType } from "@/components/pokemon/pokemonpage/pokemon-type";
 import {
   PokemonMoveButton,
   PokemonMoveShow,
-} from "@/components/pokemon-move-show";
+} from "@/components/pokemon/pokemonpage/pokemon-move-show";
 import Link from "next/link";
 // localhost:3000/pikachu
 

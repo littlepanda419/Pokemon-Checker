@@ -1,11 +1,9 @@
 
 goals:
-
 中文查詢 
 寶可夢page優化 ex:更多資訊
-雙重屬性查詢
 個性
-
+雙重屬性查詢的RWD
 
 done:
 進化退化連接 done - 1008
@@ -14,3 +12,4 @@ RWD - 1009
 render after fetched all moves - 1009
 屬性查詢 & RWD - 1010
 side bar for up 2 page -1013
+雙重屬性查詢 - 1018
