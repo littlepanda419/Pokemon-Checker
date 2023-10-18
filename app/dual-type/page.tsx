@@ -26,16 +26,12 @@ const onetime: string[] = ["1"];
 export default function PokemonDualTypePage() {
   const [type1, setType1] = useState("normal");
   const [type2, setType2] = useState("normal");
-  const [domLoaded, setDomLoaded] = useState(false);
 
   function handleClick() {
     console.log(type1, type2);
     TypeFinalCheck(type1, type2);
   }
 
-  useEffect(() => {
-    setDomLoaded(true);
-  }, []);
   return (
     <>
       <div className="flex w-full justify-center items-center">
@@ -98,48 +94,41 @@ export default function PokemonDualTypePage() {
           Check
         </button>
       </div>
-
-      {domLoaded && (
-        <>
-          <div className="text-center mx-auto w-full pad:w-1/2 ">
-            <table className="w-3/4 mx-auto text-xl ">
-              <caption
-                className="text-xl pad:text-2xl my-2"
-                id="Type1&Typ2show"
-              >
-                Choose Type1 and Type2, click the Check button.
-              </caption>
-              <tbody>
+        <div className="text-center mx-auto w-full pad:w-1/2 ">
+          <table className="w-3/4 mx-auto text-xl ">
+            <caption className="text-xl pad:text-2xl my-2" id="Type1&Typ2show">
+              Choose Type1 and Type2, click the Check button.
+            </caption>
+            <tbody>
+              <tr>
                 <th key="typeTH1">Type</th>
                 <th key="typeTH2">Multiplier</th>
-                {allTypes.map((type, index) => (
-                  <tr key={type + index} className="text-xl border-2">
+              </tr>
+              {allTypes.map((type, index) => (
+                <tr key={type + index} className="text-xl border-2">
+                  <td
+                    key={"type" + type + index}
+                    id={"type" + type}
+                    className=""
+                  >
+                    {type.charAt(0).toUpperCase() + type.slice(1)}
+                  </td>
+                  {onetime.map((e) => (
                     <td
-                      key={"type" + type + index}
-                      id={"type" + type}
-                      className=""
+                      id={type + "dmgdata"}
+                      key={type + "dmgdata"}
+                      data-label={type.charAt(0).toUpperCase() + type.slice(1)}
+                      className="text-xl border-2"
                     >
-                      {type.charAt(0).toUpperCase() + type.slice(1)}
+                      -
                     </td>
-                    {onetime.map((e) => (
-                      <td
-                        id={type + "dmgdata"}
-                        key={type + "dmgdata"}
-                        data-label={
-                          type.charAt(0).toUpperCase() + type.slice(1)
-                        }
-                        className="text-xl border-2"
-                      >
-                        -
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </>
-      )}
-    </>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </>
+      
   );
 }
