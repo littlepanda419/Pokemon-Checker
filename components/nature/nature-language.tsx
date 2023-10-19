@@ -1,59 +1,16 @@
-
-
 const data = [
   { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
-  { nameEng: "Bold", nameChine: "大膽", increases: "DEF", decreases: "ATK" },
-  {
-    nameEng: "Modest",
-    nameChine: "內斂",
-    increases: "SP.Atk",
-    decreases: "ATK",
-  },
-  { nameEng: "Calm", nameChine: "溫和", increases: "SP.Def", decreases: "ATK" },
-  { nameEng: "Timid", nameChine: "膽小", increases: "SPE", decreases: "ATK" },
   {
     nameEng: "Lonely",
     nameChine: "怕寂寞",
     increases: "ATK",
     decreases: "DEF",
   },
-  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
-  {
-    nameEng: "Mild",
-    nameChine: "慢吞吞",
-    increases: "SP.Atk",
-    decreases: "DEF",
-  },
-  {
-    nameEng: "Gentle",
-    nameChine: "溫順",
-    increases: "SP.Def",
-    decreases: "DEF",
-  },
-  { nameEng: "Hasty", nameChine: "急躁", increases: "SPE", decreases: "DEF" },
+
   {
     nameEng: "Adamant",
     nameChine: "固執",
     increases: "ATK",
-    decreases: "SP.Atk",
-  },
-  {
-    nameEng: "Impish",
-    nameChine: "淘氣",
-    increases: "DEF",
-    decreases: "SP.Atk",
-  },
-  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
-  {
-    nameEng: "Careful",
-    nameChine: "慎重",
-    increases: "SP.Def",
-    decreases: "SP.Atk",
-  },
-  {
-    nameEng: "Jolly",
-    nameChine: "爽朗",
-    increases: "SPE",
     decreases: "SP.Atk",
   },
   {
@@ -62,28 +19,65 @@ const data = [
     increases: "ATK",
     decreases: "SP.Def",
   },
+
+  { nameEng: "Brave", nameChine: "勇敢", increases: "ATK", decreases: "SPE" },
+  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
+  { nameEng: "Bold", nameChine: "大膽", increases: "DEF", decreases: "ATK" },
+
+  {
+    nameEng: "Impish",
+    nameChine: "淘氣",
+    increases: "DEF",
+    decreases: "SP.Atk",
+  },
+
   { nameEng: "Lax", nameChine: "樂天", increases: "DEF", decreases: "SP.Def" },
+
+  { nameEng: "Relaxed", nameChine: "悠閒", increases: "DEF", decreases: "SPE" },
+  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
+  {
+    nameEng: "Modest",
+    nameChine: "內斂",
+    increases: "SP.Atk",
+    decreases: "ATK",
+  },
+
+  {
+    nameEng: "Mild",
+    nameChine: "慢吞吞",
+    increases: "SP.Atk",
+    decreases: "DEF",
+  },
+
   {
     nameEng: "Rash",
     nameChine: "馬虎",
     increases: "SP.Atk",
     decreases: "SP.Def",
   },
-  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
-  {
-    nameEng: "Naive",
-    nameChine: "天真",
-    increases: "SPE",
-    decreases: "SP.Def",
-  },
-  { nameEng: "Brave", nameChine: "勇敢", increases: "ATK", decreases: "SPE" },
-  { nameEng: "Relaxed", nameChine: "悠閒", increases: "DEF", decreases: "SPE" },
+
   {
     nameEng: "Quiet",
     nameChine: "冷靜",
     increases: "SP.Atk",
     decreases: "SPE",
   },
+  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
+  { nameEng: "Calm", nameChine: "溫和", increases: "SP.Def", decreases: "ATK" },
+  {
+    nameEng: "Gentle",
+    nameChine: "溫順",
+    increases: "SP.Def",
+    decreases: "DEF",
+  },
+
+  {
+    nameEng: "Careful",
+    nameChine: "慎重",
+    increases: "SP.Def",
+    decreases: "SP.Atk",
+  },
+
   {
     nameEng: "Sassy",
     nameChine: "自大",
@@ -91,6 +85,20 @@ const data = [
     decreases: "SPE",
   },
   { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
+  { nameEng: "Timid", nameChine: "膽小", increases: "SPE", decreases: "ATK" },
+  { nameEng: "Hasty", nameChine: "急躁", increases: "SPE", decreases: "DEF" },
+  {
+    nameEng: "Jolly",
+    nameChine: "爽朗",
+    increases: "SPE",
+    decreases: "SP.Atk",
+  },
+  {
+    nameEng: "Naive",
+    nameChine: "天真",
+    increases: "SPE",
+    decreases: "SP.Def",
+  },
 ];
 const nonGrowth = [
   { nameEng: "Hardy", nameChine: "勤奮", increases: "—", decreases: "—" },
@@ -106,16 +114,16 @@ export function ChineseNature() {
         <thead>
           <tr className="border-2">
             <th className="border-2"></th>
-            <th className="border-2">減少攻擊</th>
-            <th className="border-2">減少防禦</th>
-            <th className="border-2">減少特攻</th>
-            <th className="border-2">減少特防</th>
-            <th className="border-2">減少速度</th>
+            <th className="border-2">增加攻擊</th>
+            <th className="border-2">增加防禦</th>
+            <th className="border-2">增加特攻</th>
+            <th className="border-2">增加特防</th>
+            <th className="border-2">增加速度</th>
           </tr>
         </thead>
         <tbody>
           <tr className="border-2">
-            <td>增加攻擊</td>
+            <td>減少攻擊</td>
             {data.map((entry, index) => {
               if (index % 5 === 0) {
                 return (
@@ -127,7 +135,7 @@ export function ChineseNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>增加防禦</td>
+            <td>減少防禦</td>
             {data.map((entry, index) => {
               if (index % 5 === 1) {
                 return (
@@ -139,7 +147,7 @@ export function ChineseNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>增加特攻</td>
+            <td>減少特攻</td>
             {data.map((entry, index) => {
               if (index % 5 === 2) {
                 return (
@@ -151,7 +159,7 @@ export function ChineseNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>增加特防</td>
+            <td>減少特防</td>
             {data.map((entry, index) => {
               if (index % 5 === 3) {
                 return (
@@ -163,7 +171,7 @@ export function ChineseNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>增加速度</td>
+            <td>減少速度</td>
             {data.map((entry, index) => {
               if (index % 5 === 4) {
                 return (
@@ -195,16 +203,16 @@ export function EnglishNature() {
         <thead>
           <tr className="border-2">
             <th className="border-2"></th>
-            <th className="border-2">-ATK</th>
-            <th className="border-2">-DEF</th>
-            <th className="border-2">-SP.Atk</th>
-            <th className="border-2">-SP.Def</th>
-            <th className="border-2">-SPE</th>
+            <th className="border-2">+ATK</th>
+            <th className="border-2">+DEF</th>
+            <th className="border-2">+SP.Atk</th>
+            <th className="border-2">+SP.Def</th>
+            <th className="border-2">+SPE</th>
           </tr>
         </thead>
         <tbody>
           <tr className="border-2">
-            <td>+ATK</td>
+            <td>-ATK</td>
             {data.map((entry, index) => {
               if (index % 5 === 0) {
                 return (
@@ -216,7 +224,7 @@ export function EnglishNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>+DEF</td>
+            <td>-DEF</td>
             {data.map((entry, index) => {
               if (index % 5 === 1) {
                 return (
@@ -228,7 +236,7 @@ export function EnglishNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>+SP.Atk</td>
+            <td>-SP.Atk</td>
             {data.map((entry, index) => {
               if (index % 5 === 2) {
                 return (
@@ -240,7 +248,7 @@ export function EnglishNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>+SP.Def</td>
+            <td>-SP.Def</td>
             {data.map((entry, index) => {
               if (index % 5 === 3) {
                 return (
@@ -252,7 +260,7 @@ export function EnglishNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>+SPE</td>
+            <td>-SPE</td>
             {data.map((entry, index) => {
               if (index % 5 === 4) {
                 return (
