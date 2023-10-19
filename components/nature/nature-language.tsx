@@ -106,16 +106,16 @@ export function ChineseNature() {
         <thead>
           <tr className="border-2">
             <th className="border-2"></th>
-            <th className="border-2">增加攻擊</th>
-            <th className="border-2">增加防禦</th>
-            <th className="border-2">增加特攻</th>
-            <th className="border-2">增加特防</th>
-            <th className="border-2">增加速度</th>
+            <th className="border-2">減少攻擊</th>
+            <th className="border-2">減少防禦</th>
+            <th className="border-2">減少特攻</th>
+            <th className="border-2">減少特防</th>
+            <th className="border-2">減少速度</th>
           </tr>
         </thead>
         <tbody>
           <tr className="border-2">
-            <td>減少攻擊</td>
+            <td>增加攻擊</td>
             {data.map((entry, index) => {
               if (index % 5 === 0) {
                 return (
@@ -127,7 +127,7 @@ export function ChineseNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>減少防禦</td>
+            <td>增加防禦</td>
             {data.map((entry, index) => {
               if (index % 5 === 1) {
                 return (
@@ -139,7 +139,7 @@ export function ChineseNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>減少特攻</td>
+            <td>增加特攻</td>
             {data.map((entry, index) => {
               if (index % 5 === 2) {
                 return (
@@ -151,7 +151,7 @@ export function ChineseNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>減少特防</td>
+            <td>增加特防</td>
             {data.map((entry, index) => {
               if (index % 5 === 3) {
                 return (
@@ -163,7 +163,7 @@ export function ChineseNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>減少速度</td>
+            <td>增加速度</td>
             {data.map((entry, index) => {
               if (index % 5 === 4) {
                 return (
@@ -195,16 +195,16 @@ export function EnglishNature() {
         <thead>
           <tr className="border-2">
             <th className="border-2"></th>
-            <th className="border-2">+ATK</th>
-            <th className="border-2">+DEF</th>
-            <th className="border-2">+SP.Atk</th>
-            <th className="border-2">+SP.Def</th>
-            <th className="border-2">+SPE</th>
+            <th className="border-2">-ATK</th>
+            <th className="border-2">-DEF</th>
+            <th className="border-2">-SP.Atk</th>
+            <th className="border-2">-SP.Def</th>
+            <th className="border-2">-SPE</th>
           </tr>
         </thead>
         <tbody>
           <tr className="border-2">
-            <td>-ATK</td>
+            <td>+ATK</td>
             {data.map((entry, index) => {
               if (index % 5 === 0) {
                 return (
@@ -216,7 +216,7 @@ export function EnglishNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>-DEF</td>
+            <td>+DEF</td>
             {data.map((entry, index) => {
               if (index % 5 === 1) {
                 return (
@@ -228,7 +228,7 @@ export function EnglishNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>-SP.Atk</td>
+            <td>+SP.Atk</td>
             {data.map((entry, index) => {
               if (index % 5 === 2) {
                 return (
@@ -240,7 +240,7 @@ export function EnglishNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>-SP.Def</td>
+            <td>+SP.Def</td>
             {data.map((entry, index) => {
               if (index % 5 === 3) {
                 return (
@@ -252,7 +252,7 @@ export function EnglishNature() {
             })}
           </tr>
           <tr className="border-2">
-            <td>-SPE</td>
+            <td>+SPE</td>
             {data.map((entry, index) => {
               if (index % 5 === 4) {
                 return (
