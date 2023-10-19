@@ -21,8 +21,8 @@ const data = [
   },
 
   { nameEng: "Brave", nameChine: "勇敢", increases: "ATK", decreases: "SPE" },
-  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
   { nameEng: "Bold", nameChine: "大膽", increases: "DEF", decreases: "ATK" },
+  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
 
   {
     nameEng: "Impish",
@@ -34,7 +34,6 @@ const data = [
   { nameEng: "Lax", nameChine: "樂天", increases: "DEF", decreases: "SP.Def" },
 
   { nameEng: "Relaxed", nameChine: "悠閒", increases: "DEF", decreases: "SPE" },
-  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
   {
     nameEng: "Modest",
     nameChine: "內斂",
@@ -49,6 +48,7 @@ const data = [
     decreases: "DEF",
   },
 
+  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
   {
     nameEng: "Rash",
     nameChine: "馬虎",
@@ -62,7 +62,6 @@ const data = [
     increases: "SP.Atk",
     decreases: "SPE",
   },
-  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
   { nameEng: "Calm", nameChine: "溫和", increases: "SP.Def", decreases: "ATK" },
   {
     nameEng: "Gentle",
@@ -77,6 +76,7 @@ const data = [
     increases: "SP.Def",
     decreases: "SP.Atk",
   },
+  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
 
   {
     nameEng: "Sassy",
@@ -84,7 +84,6 @@ const data = [
     increases: "SP.Def",
     decreases: "SPE",
   },
-  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
   { nameEng: "Timid", nameChine: "膽小", increases: "SPE", decreases: "ATK" },
   { nameEng: "Hasty", nameChine: "急躁", increases: "SPE", decreases: "DEF" },
   {
@@ -99,6 +98,7 @@ const data = [
     increases: "SPE",
     decreases: "SP.Def",
   },
+  { nameEng: "-", nameChine: "-", increases: "-", decreases: "-" },
 ];
 const nonGrowth = [
   { nameEng: "Hardy", nameChine: "勤奮", increases: "—", decreases: "—" },
