@@ -5,23 +5,47 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
 type PokemonGridProps = {
-  pokemonList: any;
+  pokemonList: Object[];
+  pokemonchinesenamelist: Object[];
 };
-export function PokemonGrid({ pokemonList }: PokemonGridProps) {
+type combinedList = {
+  name: string;
+  nameC: string;
+  url: string;
+};
+
+export function PokemonGrid({
+  pokemonList,
+  pokemonchinesenamelist,
+}: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");
 
   //console.log(pokemonList);
   // filter the text
   // {name: "pikachu", url:""}
+  let combinedList: combinedList[] = [];
+  combinedList = pokemonList.map((pokemon: any) => {
+    return {
+      name: pokemon.name,
+      nameC: "",
+      url: pokemon.url,
+    };
+  });
 
-  const searchFilter = (pokemonList: any) => {
-    return pokemonList.filter((pokemon: any) =>
-      pokemon.name.toLowerCase().includes(searchText.toLowerCase()),
+  const searchFilter = (combinedList: Object[]) => {
+    return combinedList.filter(
+      (pokemon: any) =>
+        pokemon.name.toLowerCase().includes(searchText.toLowerCase()) ||
+        pokemon.nameC.includes(searchText)
     );
   };
 
+  pokemonchinesenamelist.map((pokemonC: any, index: number) => {
+    //console.log(pokemonC.name,index);
+    combinedList[index].nameC = pokemonC.name;
+  });
   // save the filtered array of objects
-  const filteredPokemonList = searchFilter(pokemonList);
+  const filteredPokemonList = searchFilter(combinedList);
   // show the filtered array to user
   return (
     <>
@@ -47,7 +71,11 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
       <div className="mx-5 grid text-center grid-cols-2  pad:grid-cols-3 pad:mx-10 pc:mx-20">
         {filteredPokemonList.map((pokemon: any) => {
           return (
-            <PokemonCard name={pokemon.name} key={pokemon.name + "Card"} />
+            <PokemonCard
+              name={pokemon.name}
+              key={pokemon.name + "Card"}
+              nameC={pokemon.nameC}
+            />
           );
         })}
       </div>

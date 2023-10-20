@@ -10,6 +10,7 @@
     "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
+    "@apollo/client": "^3.8.6",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.10",
@@ -20,6 +21,7 @@
     "clsx": "^2.0.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "fs": "^0.0.1-security",
+    "graphql": "^16.8.1",
     "next": "^13.5.4",
     "react-icons": "^4.11.0",
     "tailwind-merge": "^1.14.0",

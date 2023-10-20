@@ -3,11 +3,12 @@ import Link from "next/link";
 
 type PokemonCardProps = {
   name: string;
+  nameC: string;
 };
 
 // <PokemonCard name="pikachu" />
 
-export function PokemonCard({ name }: PokemonCardProps) {
+export function PokemonCard({ name, nameC }: PokemonCardProps) {
   return (
     <Link
       href={"/pokemon/" + name}
@@ -18,6 +19,12 @@ export function PokemonCard({ name }: PokemonCardProps) {
     >
       <div className="text-base font-semibold pad:text-lg pc:text-2xl">
         {name.charAt(0).toUpperCase() + name.slice(1)}
+        <div className="hidden pad:inline-flex text-base font-semibold pad:text-lg pc:text-2xl ">
+          &nbsp;
+        </div>
+        <div className="pad:inline-flex text-base font-semibold pad:text-lg pc:text-2xl">
+          {nameC}
+        </div>
       </div>
     </Link>
   );

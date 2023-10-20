@@ -1,4 +1,13 @@
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 const POKEMON_API = "https://pokeapi.co/api/v2/";
+const POKEMON_GRAPH_API = "https://beta.pokeapi.co/graphql/v1beta";
+
+export function createApolloClient() {
+  return new ApolloClient({
+    uri: POKEMON_GRAPH_API,
+    cache: new InMemoryCache(),
+  });
+}
 
 // getPokemonList -> Get the first 151 pokemon
 export async function getPokemonList() {
@@ -47,7 +56,7 @@ export async function getPokemonChineseName(url: string) {
   const response = await fetch(url);
   const data = await response.json();
   const name = data.names.find(
-    (item: any) => item.language.name === "zh-Hant",
+    (item: any) => item.language.name === "zh-Hant"
   ).name;
   return name;
 }
@@ -60,7 +69,7 @@ export async function getPokemonName(id: number) {
 }
 
 export async function getPokemonType(type: string) {
-  const response = await fetch(POKEMON_API + "type/" + type);//https://pokeapi.co/api/v2/type/normal
+  const response = await fetch(POKEMON_API + "type/" + type); //https://pokeapi.co/api/v2/type/normal
   const data = await response.json();
   return data;
 }
