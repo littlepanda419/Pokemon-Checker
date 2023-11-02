@@ -4,11 +4,12 @@ import Link from "next/link";
 type PokemonCardProps = {
   name: string;
   nameC: string;
+  id: string;
 };
 
 // <PokemonCard name="pikachu" />
 
-export function PokemonCard({ name, nameC }: PokemonCardProps) {
+export function PokemonCard({ name, nameC,id}: PokemonCardProps) {
   return (
     <Link
       href={"/pokemon/" + name}
@@ -16,6 +17,7 @@ export function PokemonCard({ name, nameC }: PokemonCardProps) {
                   pad:m-3 pad:p-4 pad:shadow-[3px_3px_0px_0px_rgba(255,255,128,0.8)]
                   pc:m-4 pc:p-4 pc:shadow-[5px_5px_0px_0px_rgba(255,255,128,0.8)]"
       key={name + "Card"}
+      id={id}
     >
       <div className="text-base font-semibold pad:text-lg pc:text-2xl">
         {name.charAt(0).toUpperCase() + name.slice(1)}

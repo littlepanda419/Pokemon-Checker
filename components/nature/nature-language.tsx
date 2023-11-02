@@ -113,12 +113,12 @@ export function ChineseNature() {
       <table className="w-full pad:w-2/3 border-collapse text-center mx-auto m-10 text-lg pad:text-xl pc:text-2xl ">
         <thead>
           <tr className="border-2">
-            <th className="border-2 w-[10%]"></th>
-            <th className="border-2 w-[10%]">增加攻擊</th>
-            <th className="border-2 w-[10%]">增加防禦</th>
-            <th className="border-2 w-[10%]">增加特攻</th>
-            <th className="border-2 w-[10%]">增加特防</th>
-            <th className="border-2 w-[10%]">增加速度</th>
+            <th className="border-2 w-1/6 pad:w-1/9"></th>
+            <th className="border-2 w-1/6 pad:w-1/9">增加攻擊</th>
+            <th className="border-2 w-1/6 pad:w-1/9">增加防禦</th>
+            <th className="border-2 w-1/6 pad:w-1/9">增加特攻</th>
+            <th className="border-2 w-1/6 pad:w-1/9">增加特防</th>
+            <th className="border-2 w-1/6 pad:w-1/9">增加速度</th>
           </tr>
         </thead>
         <tbody>
@@ -202,12 +202,12 @@ export function EnglishNature() {
       <table className="w-full pad:w-2/3 border-collapse text-center mx-auto m-10 text-lg pad:text-xl pc:text-2xl ">
         <thead>
           <tr className="border-2">
-            <th className="border-2"></th>
-            <th className="border-2">+ATK</th>
-            <th className="border-2">+DEF</th>
-            <th className="border-2">+SP.Atk</th>
-            <th className="border-2">+SP.Def</th>
-            <th className="border-2">+SPE</th>
+            <th className="border-2 w-1/6 pad:w-1/9"></th>
+            <th className="border-2 w-1/6 pad:w-1/9">+ATK</th>
+            <th className="border-2 w-1/6 pad:w-1/9">+DEF</th>
+            <th className="border-2 w-1/6 pad:w-1/9">+SP.Atk</th>
+            <th className="border-2 w-1/6 pad:w-1/9">+SP.Def</th>
+            <th className="border-2 w-1/6 pad:w-1/9">+SPE</th>
           </tr>
         </thead>
         <tbody>
