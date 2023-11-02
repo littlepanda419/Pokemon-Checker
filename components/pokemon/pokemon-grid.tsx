@@ -17,8 +17,8 @@ type combinedList = {
 };
 
 const pokemonGenerations: { [key: number]: number } = {
-  2: 101,
-  3: 136,
+  2: 100,
+  3: 135,
   4: 107,
   5: 156,
   6: 72,
@@ -68,43 +68,68 @@ export function PokemonGrid({
   const [loading, setLoading] = useState(false);
   const [endDex, setEndDex] = useState(151);
   let gen = 1;
-  let nowHeight = 0;
+  let showuntil = 151;
 
   const loadMore = () => {
     setLoading(true);
+    let scrolled = window.scrollY;
     setTimeout(() => {
-      setEndDex(endDex + pokemonGenerations[gen]);
-      gen++;
-      console.log(gen);
-      setLoading(false);
-      requestAnimationFrame(() => {
-        window.scrollTo({
-          top: nowHeight,
-          behavior: "auto",
-        });
+      gen += 1;
+      showuntil += pokemonGenerations[gen];
+      if (showuntil > parseInt(maxid)) {
+        showuntil = parseInt(maxid);
+      }
+      setEndDex(showuntil);
+      window.scrollTo({
+        top: scrolled - 1.5,
+        behavior: "auto",
       });
-    }, 10);
+      setLoading(false);
+    }, 100);
   };
+  function throttle<T extends (...args: any[]) => void>(
+    func: T,
+    delay: number
+  ): (...args: Parameters<T>) => void {
+    let isThrottled = false;
+    let lastArgs: Parameters<T> | null = null;
 
-  const handleScroll = () => {
+    return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
+      if (!isThrottled) {
+        func.apply(this, args);
+        isThrottled = true;
+
+        setTimeout(() => {
+          isThrottled = false;
+          if (lastArgs) {
+            // If there are saved arguments, call the function again
+            func.apply(this, lastArgs);
+            lastArgs = null;
+          }
+        }, delay);
+      } else {
+        // Save the most recent arguments to be called later
+        lastArgs = args;
+      }
+    };
+  }
+
+  const throttledHandleScroll = throttle(() => {
     const scrollable =
       document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = window.scrollY;
-    console.log(scrolled, scrollable);
-    if (scrolled + 1 >= scrollable && scrollable !=0) {
+    let scrolled = window.scrollY;
+    if (scrolled + 1 >= scrollable) {
       if (!loading && gen < 9) {
         setLoading(true);
         loadMore();
-        nowHeight = scrolled;
-        console.log(nowHeight);
       }
     }
-  };
+  }, 300);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", throttledHandleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", throttledHandleScroll);
     };
   }, []);
 
