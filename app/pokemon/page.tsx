@@ -19,7 +19,7 @@ export default async function Home() {
   const pokemonchinesenamelist = data.pokemon_v2_pokemonspeciesname;
   return (
     <>
-      <PokemonGrid pokemonList={pokemonList} pokemonchinesenamelist={pokemonchinesenamelist}/>
+      <PokemonGrid pokemonList={pokemonList} pokemonchinesenamelist={pokemonchinesenamelist} maxid={process.env.MAXID.toString()}/>
     </>
   );
 }

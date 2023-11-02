@@ -170,6 +170,15 @@ select option:first-child {
 label:has(input[type="radio"]:checked) {
   @apply bg-[#5865f2] text-white;
 }
+.hidescroll {
+  overflow: auto;
+  scrollbar-width: none; /* 隐藏滚动条在Firefox中 */
+  -ms-overflow-style: none; /* 隐藏滚动条在IE/Edge中 */
+}
+
+.hidescroll::-webkit-scrollbar {
+  width: 0; /* 隐藏滚动条在Chrome和Safari中 */
+}
 
 @media (min-width: 0px) and (max-width: 767px) {
   #typeTable td {

@@ -21,11 +21,11 @@ function getTwoID(id: number) {
   let previousid: number = 0;
   let nextid: number = 0;
   if (id === 1) {
-    previousid = process.env.MAXID;
+    previousid = parseInt(process.env.MAXID);
   } else {
     previousid = id - 1;
   }
-  if (id >= process.env.MAXID) {
+  if (id >= parseInt(process.env.MAXID)) {
     nextid = 1;
   } else {
     nextid = id + 1;
@@ -136,7 +136,6 @@ export default async function PokemonPage({
               <PokemonHW pokemonObject={pokemonObject} />
             </div>
           </div>
-          
         </div>
 
         <div className="border pc:mx-5 mt-4 border-gray-400 pc:hidden"></div>

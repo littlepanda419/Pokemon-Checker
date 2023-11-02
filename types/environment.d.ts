@@ -1,10 +1,10 @@
-export {};
-
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      MAXID: number;
-      ENV: "test" | "dev" | "prod";
+      MAXID: string;
+      NODE_ENV: 'development' | 'production';
     }
   }
 }
+
+export {};

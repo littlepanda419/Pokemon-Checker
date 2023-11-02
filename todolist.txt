@@ -1,6 +1,5 @@
 
 goals:
-中文查詢 
 
 done:
 進化退化連接 done - 1008
@@ -12,3 +11,4 @@ side bar for up 2 page -1013
 雙重屬性查詢&RWD - 1018 
 寶可夢page優化 ex:更多資訊 -1018
 個性性格nature - 1018
+中文查詢 
