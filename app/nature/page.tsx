@@ -9,8 +9,8 @@ import * as MdIcons from "react-icons/md";
 import { IconContext } from "react-icons";
 
 export default function PokemonNaturePage() {
-  const [language, setLanguage] = useState("english");
-  const [isLanguageListVisible, setLanguageListVisible] = useState(false);
+  const [language, setLanguage] = useState<string>("english");
+  const [isLanguageListVisible, setLanguageListVisible] = useState<boolean>(false);
 
   const handleLanguageChange = (language: string) => {
     setLanguage(language);

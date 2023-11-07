@@ -217,6 +217,11 @@ export async function TypeFinalCheck(type1: string, type2: string) {
   });
   const element = document.getElementById("Type1&Typ2show");
   if (element) {
-    element.innerHTML = type1Obj.name.charAt(0).toUpperCase() + type1Obj.name.slice(1) + " + " + type2Obj.name.charAt(0).toUpperCase() + type2Obj.name.slice(1);
+    element.innerHTML =
+      type1Obj.name.charAt(0).toUpperCase() +
+      type1Obj.name.slice(1) +
+      " + " +
+      type2Obj.name.charAt(0).toUpperCase() +
+      type2Obj.name.slice(1);
   }
 }

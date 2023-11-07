@@ -24,8 +24,8 @@ const allTypes: string[] = [
 const onetime: string[] = ["1"];
 
 export default function PokemonDualTypePage() {
-  const [type1, setType1] = useState("normal");
-  const [type2, setType2] = useState("normal");
+  const [type1, setType1] = useState<string>("normal");
+  const [type2, setType2] = useState<string>("normal");
 
   function handleClick() {
     console.log(type1, type2);

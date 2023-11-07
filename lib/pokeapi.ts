@@ -13,7 +13,7 @@ export function createApolloClient() {
 export async function getPokemonList() {
   const response = await fetch(POKEMON_API + "pokemon?limit=10000&offset=0");
   const data = await response.json();
-  for (let i = 1016; i < data.results.length; i++) {
+  for (let i = parseInt(process.env.MAXID)-1; i < data.results.length; i++) {
     const id = data.results[i].url.split("/")[6];
     if (id >= 10000) {
       data.results.splice(i, 1);
@@ -69,7 +69,8 @@ export async function getPokemonName(id: number) {
 }
 
 export async function getPokemonType(type: string) {
-  const response = await fetch(POKEMON_API + "type/" + type); //https://pokeapi.co/api/v2/type/normal
+  //https://pokeapi.co/api/v2/type/normal
+  const response = await fetch(POKEMON_API + "type/" + type); 
   const data = await response.json();
   return data;
 }

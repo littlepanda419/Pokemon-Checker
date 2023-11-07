@@ -3,6 +3,7 @@ import { PokemonCard } from "@/components/pokemon/pokemon-card";
 import { useState, useEffect } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { list } from "postcss";
 
 type PokemonGridProps = {
   pokemonList: Object[];
@@ -16,7 +17,7 @@ type combinedList = {
   id: string;
 };
 
-const pokemonGenerations: { [key: number]: number } = {
+const pokemonAmountPerGeneration: { [key: number]: number } = {
   2: 100,
   3: 135,
   4: 107,
@@ -51,8 +52,9 @@ export function PokemonGrid({
   });
 
   const searchFilter = (combinedlist: combinedList[]) => {
+    console.log(combinedlist);
     return combinedlist.filter(
-      (pokemon: any) =>
+      (pokemon: combinedList) =>
         pokemon.name.toLowerCase().includes(searchText.toLowerCase()) ||
         pokemon.nameC.includes(searchText) ||
         pokemon.id.includes(searchText)
@@ -65,17 +67,17 @@ export function PokemonGrid({
     setSearchText(search);
   }
   /*infinity scroll */
-  const [loading, setLoading] = useState(false);
-  const [endDex, setEndDex] = useState(151);
-  let gen = 1;
-  let showuntil = 151;
+  const [loading, setLoading] = useState<boolean>(false);
+  const [endDex, setEndDex] = useState<number>(151);
+  let gen: number = 1;
+  let showuntil: number = 151;
 
   const loadMore = () => {
     setLoading(true);
     let scrolled = window.scrollY;
     setTimeout(() => {
       gen += 1;
-      showuntil += pokemonGenerations[gen];
+      showuntil += pokemonAmountPerGeneration[gen];
       if (showuntil > parseInt(maxid)) {
         showuntil = parseInt(maxid);
       }
@@ -87,32 +89,6 @@ export function PokemonGrid({
       setLoading(false);
     }, 100);
   };
-  function throttle<T extends (...args: any[]) => void>(
-    func: T,
-    delay: number
-  ): (...args: Parameters<T>) => void {
-    let isThrottled = false;
-    let lastArgs: Parameters<T> | null = null;
-
-    return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
-      if (!isThrottled) {
-        func.apply(this, args);
-        isThrottled = true;
-
-        setTimeout(() => {
-          isThrottled = false;
-          if (lastArgs) {
-            // If there are saved arguments, call the function again
-            func.apply(this, lastArgs);
-            lastArgs = null;
-          }
-        }, delay);
-      } else {
-        // Save the most recent arguments to be called later
-        lastArgs = args;
-      }
-    };
-  }
 
   const throttledHandleScroll = throttle(() => {
     const scrollable =
@@ -149,7 +125,7 @@ export function PokemonGrid({
           />
         </div>
       </div>
-      <div className="text-xl text-center my-3 mx-auto pad:text-2xl  pc:text-3xl">
+      <div className="text-xl text-center my-3 mx-auto pad:text-2xl pc:text-3xl">
         Pokédex
       </div>
       <div className="mx-5 border-t border-white flex-auto my-2 pad:mx-10 pc:mx-20"></div>
@@ -170,4 +146,31 @@ export function PokemonGrid({
       </div>
     </>
   );
+}
+
+function throttle<T extends (...args: any[]) => void>(
+  func: T,
+  delay: number
+): (...args: Parameters<T>) => void {
+  let isThrottled = false;
+  let lastArgs: Parameters<T> | null = null;
+
+  return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
+    if (!isThrottled) {
+      func.apply(this, args);
+      isThrottled = true;
+
+      setTimeout(() => {
+        isThrottled = false;
+        if (lastArgs) {
+          // If there are saved arguments, call the function again
+          func.apply(this, lastArgs);
+          lastArgs = null;
+        }
+      }, delay);
+    } else {
+      // Save the most recent arguments to be called later
+      lastArgs = args;
+    }
+  };
 }

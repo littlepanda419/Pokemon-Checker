@@ -7,7 +7,7 @@ import { IconContext } from "react-icons";
 import { SideBarData } from "./sidebardata";
 
 export function SideBar() {
-  const [sidebar, setSideBar] = useState(false);
+  const [sidebar, setSideBar] = useState<boolean>(false);
   const showSidebar = () => setSideBar(!sidebar);
 
   return (

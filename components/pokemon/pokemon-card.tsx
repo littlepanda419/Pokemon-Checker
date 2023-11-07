@@ -9,7 +9,7 @@ type PokemonCardProps = {
 
 // <PokemonCard name="pikachu" />
 
-export function PokemonCard({ name, nameC,id}: PokemonCardProps) {
+export function PokemonCard({ name, nameC, id }: PokemonCardProps) {
   return (
     <Link
       href={"/pokemon/" + name}

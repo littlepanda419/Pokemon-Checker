@@ -1,5 +1,6 @@
 
 goals:
+pokemon page button hover improve effect
 
 done:
 進化退化連接 done - 1008

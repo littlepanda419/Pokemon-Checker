@@ -38,7 +38,7 @@ export default async function PokemonPage({
   params: { pokemonRouteName: string };
 }) {
   const { pokemonRouteName } = params; // pikachu
-  let pokemonObject: any;
+  let pokemonObject:any;
 
   try {
     pokemonObject = await getPokemon(pokemonRouteName); // get the API data for pikachu
