@@ -7,7 +7,7 @@ import { IconContext } from "react-icons";
 import { SideBarData } from "./sidebardata";
 
 export function SideBar() {
-  const [sidebar, setSideBar] = useState<boolean>(false);
+  const [sidebar, setSideBar] = useState(false);
   const showSidebar = () => setSideBar(!sidebar);
 
   return (
@@ -22,7 +22,7 @@ export function SideBar() {
           </Link>
         </div>
         <nav className={sidebar ? "side-menu active" : "side-menu"}>
-          <ul className=" w-full pad:mt-4" onClick={showSidebar}>
+          <ul className=" w-full pad:mt-4 text-center flex-row " onClick={showSidebar}>
             <li className="bg-[#2b2d31] w-full h-[100px] pad:h-[10%] flex justify-start place-items-center ">
               <Link href="#" className="ml-[2rem] text-3xl ">
                 <AiIcons.AiOutlineClose />
@@ -32,17 +32,16 @@ export function SideBar() {
             <div className="border border-gray-400 w-[95%] mx-auto mb-2"></div>
 
             {SideBarData.map((item, index) => {
-              return (
-                <li key={index} className={item.clasName}>
-                  <Link
-                    href={item.path}
-                    className="decoration-0 mx-auto text-center pad:w-full h-full flex items-center rounded-xl hover:bg-[#1a83ff]"
-                  >
-                    {item.icon}
-                    <div className="pl-1">{item.title}</div>
-                  </Link>
-                </li>
-              );
+                return (
+                  <li key={index} className={item.clasName}>
+                    <Link
+                      href={item.path}
+                      className="decoration-0 mx-auto text-center pad:w-full h-full flex items-center rounded-xl hover:bg-[#1a83ff] "
+                    >
+                      {item.icon}&nbsp;{item.title}
+                    </Link>
+                  </li>
+                );
             })}
           </ul>
         </nav>
