@@ -17,6 +17,7 @@ import {
 import Link from "next/link";
 // localhost:3000/pikachu
 
+
 function getTwoID(id: number) {
   let previousid: number = 0;
   let nextid: number = 0;
