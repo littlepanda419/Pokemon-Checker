@@ -3,7 +3,6 @@ import { PokemonCard } from "@/components/pokemon/pokemon-card";
 import { useState, useEffect } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { list } from "postcss";
 
 type PokemonGridProps = {
   pokemonList: Object[];

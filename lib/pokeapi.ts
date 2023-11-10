@@ -74,3 +74,15 @@ export async function getPokemonType(type: string) {
   const data = await response.json();
   return data;
 }
+
+export async function getPokemonAbilitiesList() {
+  const response = await fetch(POKEMON_API+"ability?offset=0&limit=999"); 
+  const data = await response.json();
+  return data.results;
+}
+
+export async function getPokemonAbilities(name:string) {
+  const response = await fetch(POKEMON_API+"ability/"+name); 
+  const data = await response.json();
+  return data;
+}
