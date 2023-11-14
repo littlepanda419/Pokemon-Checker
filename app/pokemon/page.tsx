@@ -27,7 +27,6 @@ export default async function Home() {
       <PokemonGrid
         pokemonList={pokemonList}
         pokemonchinesenamelist={pokemonchinesenamelist}
-        maxid={process.env.MAXID}
       />
     </>
   );

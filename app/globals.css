@@ -73,98 +73,98 @@ body {
 }
 
 #typenormal {
-  background-color: #4e5457;
-  border-color: #4e5457;
+  background-color: #A8A77A;
+  border-color: #A8A77A;
 }
 
 #typefighting {
-  background-color: #cc6600;
-  border-color: #cc6600;
+  background-color: #C22E28;
+  border-color: #C22E28;
 }
 
 #typeflying {
-  background-color: #0f4579;
-  border-color: #0f4579;
+  background-color: #A98FF3;
+  border-color: #A98FF3;
 }
 
 #typepoison {
-  background-color: #6b2a9a;
-  border-color: #6b2a9a;
+  background-color: #A33EA1;
+  border-color: #A33EA1;
 }
 
 #typeground {
-  background-color: #74411a;
-  border-color: #74411a;
+  background-color: #E2BF65;
+  border-color: #E2BF65;
 }
 
 #typerock {
-  background-color: #504c33;
-  border-color: #504c33;
+  background-color: #B6A136;
+  border-color: #B6A136;
 }
 
 #typebug {
-  background-color: #748114;
-  border-color: #748114;
+  background-color: #A6B91A;
+  border-color: #A6B91A;
 }
 
 #typeghost {
-  background-color: #5a345a;
-  border-color: #5a345a;
+  background-color: #735797;
+  border-color: #735797;
 }
 
 #typesteel {
-  background-color: #3a7083;
-  border-color: #3a7083;
+  background-color: #B7B7CE;
+  border-color: #B7B7CE;
 }
 
 #typefire {
-  background-color: #af1415;
-  border-color: #af1415;
+  background-color: #EE8130;
+  border-color: #EE8130;
 }
 
 #typewater {
-  background-color: #0d55b0;
-  border-color: #0d55b0;
+  background-color: #6390F0;
+  border-color: #6390F0;
 }
 
 #typegrass {
-  background-color: #328121;
-  border-color: #328121;
+  background-color: #7AC74C;
+  border-color: #7AC74C;
 }
 
 #typeelectric {
-  background-color: #c89a00;
-  border-color: #c89a00;
+  background-color: #F7D02C;
+  border-color: #F7D02C;
 }
 
 #typepsychic {
-  background-color: #a10e3d;
-  border-color: #a10e3d;
+  background-color: #F95587;
+  border-color: #F95587;
 }
 
 #typeice {
-  background-color: #0084a6;
-  border-color: #0084a6;
+  background-color: #96D9D6;
+  border-color: #96D9D6;
 }
 
 #typedragon {
-  background-color: #192795;
-  border-color: #192795;
+  background-color: #6F35FC;
+  border-color: #6F35FC;
 }
 
 #typedark {
-  background-color: #363a3d;
-  border-color: #363a3d;
+  background-color: #705746;
+  border-color: #705746;
 }
 
 #typefairy {
-  background-color: #840f84;
-  border-color: #840f84;
+  background-color: #D685AD;
+  border-color: #D685AD;
 }
 
 select option:first-child {
-  background-color: #4e5457;
-  border-color: #4e5457;
+  background-color: #A8A77A;
+  border-color: #A8A77A;
 }
 
 label:has(input[type="radio"]:checked) {
@@ -172,12 +172,12 @@ label:has(input[type="radio"]:checked) {
 }
 .hidescroll {
   overflow: auto;
-  scrollbar-width: none; /* 隐藏滚动条在Firefox中 */
-  -ms-overflow-style: none; /* 隐藏滚动条在IE/Edge中 */
+  scrollbar-width: none; /* 在Firefox中隐藏scroll bar */
+  -ms-overflow-style: none; /* 在IE/Edge中隐藏scroll bar */
 }
 
 .hidescroll::-webkit-scrollbar {
-  width: 0; /* 隐藏滚动条在Chrome和Safari中 */
+  width: 0; /* 在Chrome和Safari中隐藏scroll bar */
 }
 
 @media (min-width: 0px) and (max-width: 767px) {

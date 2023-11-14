@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 const POKEMON_API = "https://pokeapi.co/api/v2/";
 const POKEMON_GRAPH_API = "https://beta.pokeapi.co/graphql/v1beta";
+export const MAXID:string="1017"
 
 export function createApolloClient() {
   return new ApolloClient({
@@ -13,7 +14,7 @@ export function createApolloClient() {
 export async function getPokemonList() {
   const response = await fetch(POKEMON_API + "pokemon?limit=10000&offset=0");
   const data = await response.json();
-  for (let i = parseInt(process.env.MAXID)-1; i < data.results.length; i++) {
+  for (let i = parseInt(MAXID)-1; i < data.results.length; i++) {
     const id = data.results[i].url.split("/")[6];
     if (id >= 10000) {
       data.results.splice(i, 1);

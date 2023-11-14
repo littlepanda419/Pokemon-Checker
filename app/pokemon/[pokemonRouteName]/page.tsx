@@ -2,6 +2,7 @@ import {
   getPokemon,
   getPokemonChineseName,
   getPokemonName,
+  MAXID
 } from "@/lib/pokeapi";
 import { PokemonImage } from "@/components/pokemon/pokemonpage/pokemon-image";
 import { PokemonStat } from "@/components/pokemon/pokemonpage/pokemon-stat";
@@ -15,18 +16,18 @@ import {
   PokemonMoveShow,
 } from "@/components/pokemon/pokemonpage/pokemon-move-show";
 import Link from "next/link";
-// localhost:3000/pikachu
+// http://localhost:3000/pokemon/pikachu
 
 
 function getTwoID(id: number) {
   let previousid: number = 0;
   let nextid: number = 0;
   if (id === 1) {
-    previousid = parseInt(process.env.MAXID);
+    previousid = parseInt(MAXID);
   } else {
     previousid = id - 1;
   }
-  if (id >= parseInt(process.env.MAXID)) {
+  if (id >= parseInt(MAXID)) {
     nextid = 1;
   } else {
     nextid = id + 1;

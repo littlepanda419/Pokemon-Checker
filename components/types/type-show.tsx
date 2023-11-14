@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
+import { normalize } from "path";
 
 type PokemonTypeProps = {
   typeRouteName: string;
@@ -31,21 +32,43 @@ const allTypes: string[] = [
   "dark",
   "fairy",
 ];
+const colors: { [key: string]: string } = {
+  normal: "#A8A77A",
+  fire: "#EE8130",
+  water: "#6390F0",
+  electric: "#F7D02C",
+  grass: "#7AC74C",
+  ice: "#96D9D6",
+  fighting: "#C22E28",
+  poison: "#A33EA1",
+  ground: "#E2BF65",
+  flying: "#A98FF3",
+  psychic: "#F95587",
+  bug: "#A6B91A",
+  rock: "#B6A136",
+  ghost: "#735797",
+  dragon: "#6F35FC",
+  dark: "#705746",
+  steel: "#B7B7CE",
+  fairy: "#D685AD",
+};
 
 export function PokemonShowType({
   typeRouteName,
   pokemonTypeChineseName,
 }: PokemonTypeProps) {
+  const colorrgb = colors[typeRouteName];
+
   return (
     <>
       <form className="mx-auto text-center my-5 ">
         <label htmlFor="type" className="text-xl pad:text-2xl">
-          Type Checker:{" "}
+          Type Checker: &nbsp;
         </label>
         <select
           id="typesele"
           name="typesele"
-          className="text-black overflow-y-scroll h-fit text-xl pad:text-2xl max-h-[50%] pad:max-h-[100%] max-w-[30%] pad:max-w-[100%]"
+          className={`overflow-y-scroll h-fit text-xl pad:text-2xl max-h-[50%] pad:max-h-[100%] max-w-[30%] pad:max-w-[100%] bg-transparent p-1 border-2 border-[${colorrgb}] text-[${colorrgb}]`}
           defaultValue={typeRouteName}
           onChange={(e) => {
             window.location.href = e.target.value.toLowerCase();
@@ -69,12 +92,11 @@ export function PokemonShowType({
       >
         {typeRouteName.charAt(0).toUpperCase() + typeRouteName.slice(1)}
         <br />
-        {pokemonTypeChineseName}系
+        {pokemonTypeChineseName}
       </div>
     </>
   );
 }
-
 
 export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
   return (
@@ -97,7 +119,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       doubleDamageto.name.slice(1)}
                   </Link>
                 </th>
-              ),
+              )
             )}
             {pokemonTypeObject.damage_relations.half_damage_to.map(
               (halfDamageto: any) => (
@@ -111,7 +133,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       halfDamageto.name.slice(1)}
                   </Link>
                 </th>
-              ),
+              )
             )}
             {pokemonTypeObject.damage_relations.no_damage_to.map(
               (noDamageto: any) => (
@@ -125,7 +147,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       noDamageto.name.slice(1)}
                   </Link>
                 </th>
-              ),
+              )
             )}
           </tr>
         </thead>
@@ -144,7 +166,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   2x
                 </td>
-              ),
+              )
             )}
 
             {pokemonTypeObject.damage_relations.half_damage_to.map(
@@ -160,7 +182,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   1/2x
                 </td>
-              ),
+              )
             )}
 
             {pokemonTypeObject.damage_relations.no_damage_to.map(
@@ -176,7 +198,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   0x
                 </td>
-              ),
+              )
             )}
           </tr>
         </tbody>
@@ -207,7 +229,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       doubleDamagefrom.name.slice(1)}
                   </Link>
                 </th>
-              ),
+              )
             )}
             {pokemonTypeObject.damage_relations.half_damage_from.map(
               (halfDamagefrom: any) => (
@@ -221,7 +243,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       halfDamagefrom.name.slice(1)}
                   </Link>
                 </th>
-              ),
+              )
             )}
             {pokemonTypeObject.damage_relations.no_damage_from.map(
               (noDamagefrom: any) => (
@@ -235,7 +257,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       noDamagefrom.name.slice(1)}
                   </Link>
                 </th>
-              ),
+              )
             )}
           </tr>
         </thead>
@@ -254,7 +276,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   2x
                 </td>
-              ),
+              )
             )}
 
             {pokemonTypeObject.damage_relations.half_damage_from.map(
@@ -270,7 +292,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   1/2x
                 </td>
-              ),
+              )
             )}
 
             {pokemonTypeObject.damage_relations.no_damage_from.map(
@@ -286,7 +308,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   0x
                 </td>
-              ),
+              )
             )}
           </tr>
         </tbody>

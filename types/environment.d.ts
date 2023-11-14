@@ -1,4 +1,4 @@
-declare global {
+/*declare global {
   namespace NodeJS {
     interface ProcessEnv {
       MAXID: string;
@@ -8,3 +8,4 @@ declare global {
 }
 
 export {};
+*/

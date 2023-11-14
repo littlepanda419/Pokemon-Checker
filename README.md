@@ -21,5 +21,15 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 
 ## Information About This Projects
-WIP.
+### Features
 
+- [x] Pokemon info
+- [x] Search pokemon in both English / Chinese
+- [x] Nature info
+- [x] Check types of pokemon 
+- [x] Check the weakness of a dual-type pokemone
+- [x] Sidbar to switch between features
+ ### Working On Features
+- [ ] Moves info
+- [ ] Items info
+- [ ] Abilities info

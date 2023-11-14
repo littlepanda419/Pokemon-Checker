@@ -1,4 +1,7 @@
 "use client";
+import {
+  MAXID
+} from "@/lib/pokeapi";
 import { PokemonCard } from "@/components/pokemon/pokemon-card";
 import { useState, useEffect } from "react";
 import { Label } from "@/components/ui/label";
@@ -7,7 +10,6 @@ import { Input } from "@/components/ui/input";
 type PokemonGridProps = {
   pokemonList: Object[];
   pokemonchinesenamelist: Object[];
-  maxid: string;
 };
 type combinedList = {
   name: string;
@@ -30,7 +32,6 @@ const pokemonAmountPerGeneration: { [key: number]: number } = {
 export function PokemonGrid({
   pokemonList,
   pokemonchinesenamelist,
-  maxid,
 }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");
   const [filteredPokemonList, setFilteredPokemonList] = useState<
@@ -51,7 +52,6 @@ export function PokemonGrid({
   });
 
   const searchFilter = (combinedlist: combinedList[]) => {
-    console.log(combinedlist);
     return combinedlist.filter(
       (pokemon: combinedList) =>
         pokemon.name.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -77,8 +77,8 @@ export function PokemonGrid({
     setTimeout(() => {
       gen += 1;
       showuntil += pokemonAmountPerGeneration[gen];
-      if (showuntil > parseInt(maxid)) {
-        showuntil = parseInt(maxid);
+      if (showuntil > parseInt(MAXID)) {
+        showuntil = parseInt(MAXID);
       }
       setEndDex(showuntil);
       window.scrollTo({
@@ -107,7 +107,6 @@ export function PokemonGrid({
       window.removeEventListener("scroll", throttledHandleScroll);
     };
   }, []);
-
   return (
     <>
       <div className="justify-center content-centers max-w-sm mx-auto">
