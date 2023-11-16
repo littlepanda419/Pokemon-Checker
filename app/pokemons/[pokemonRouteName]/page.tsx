@@ -4,19 +4,19 @@ import {
   getPokemonName,
   MAXID
 } from "@/lib/pokeapi";
-import { PokemonImage } from "@/components/pokemon/pokemonpage/pokemon-image";
-import { PokemonStat } from "@/components/pokemon/pokemonpage/pokemon-stat";
-import { PokemonEv } from "@/components/pokemon/pokemonpage/pokemon-ev";
-import { PokemonType } from "@/components/pokemon/pokemonpage/pokemon-type";
-import { PokemonAbility } from "@/components/pokemon/pokemonpage/pokemon-ability";
-import { PokemonHW } from "@/components/pokemon/pokemonpage/pokemon-height_weight";
+import { PokemonImage } from "@/components/Pokemon/PokemonPage/pokemon-image";
+import { PokemonStat } from "@/components/Pokemon/PokemonPage/pokemon-stat";
+import { PokemonEv } from "@/components/Pokemon/PokemonPage/pokemon-ev";
+import { PokemonType } from "@/components/Pokemon/PokemonPage/pokemon-type";
+import { PokemonAbility } from "@/components/Pokemon/PokemonPage/pokemon-ability";
+import { PokemonHW } from "@/components/Pokemon/PokemonPage/pokemon-height_weight";
 
 import {
   PokemonMoveButton,
   PokemonMoveShow,
-} from "@/components/pokemon/pokemonpage/pokemon-move-show";
+} from "@/components/Pokemon/PokemonPage/pokemon-move-show";
 import Link from "next/link";
-// http://localhost:3000/pokemon/pikachu
+// http://localhost:3000/Pokemon/pikachu
 
 
 function getTwoID(id: number) {
@@ -60,7 +60,7 @@ export default async function PokemonPage({
       <div id="pokemonRouteName" className="grid grid-cols-3 mt-2 text-lg">
         <div className="text-left flex flex-row my-auto mr-auto  text-base pad:text-xl pad:font-medium">
           <Link
-            href={"/pokemon/" + pokemonpreviousname}
+            href={"/pokemons/" + pokemonpreviousname}
             key={pokemonpreviousname}
           >
             ← {pokemonpreviousname}
@@ -68,17 +68,17 @@ export default async function PokemonPage({
         </div>
         <div className="font-bold text-center mx-auto text-2xl pc:text-3xl">
           <Link
-            href={"https://wiki.52poke.com/wiki/" + pokemonname}
+            href={"https://wiki.52poke.com/wiki/" + pokemonname.split("-")[0]}
             target="_blank"
             key={pokemonname}
           >
             {pokemonObject.id}. {pokemonchinesename}
-            <br></br>
+            <br/>
             {pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
           </Link>
         </div>
         <div className="text-right flex flex-row-reverse my-auto ml-auto  text-base pad:text-xl pad:font-medium">
-          <Link href={"/pokemon/" + pokemonnextname} key={pokemonnextname}>
+          <Link href={"/pokemons/" + pokemonnextname} key={pokemonnextname}>
             {pokemonnextname} →
           </Link>
         </div>

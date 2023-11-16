@@ -2,7 +2,7 @@
 import {
   getPokemonAbilitiesList,createApolloClient
 } from "@/lib/pokeapi";
-import {AbilityGrid} from "@/components/ability/ability-grid";
+import {AbilityGrid} from "@/components/Ability/ability-grid";
 import { gql } from "@apollo/client";
 
 export default async function PokemonItemsPage({}: {}) {
