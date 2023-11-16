@@ -19,19 +19,25 @@ export default async function PokemonAbilityPage({
   let abilitynameC: string = "";
   let abilityeffectC: string = "";
   try {
-    abilityname = pokemonAbilityObject.name;
-    abilityeffect = pokemonAbilityObject.effect_entries.find(
+    abilityname = pokemonAbilityObject.names.find(
       (item: any) => item.language.name === "en"
-    ).effect;
+    ).name;
+  } catch (error) {}
+  try {
+    abilityeffect = pokemonAbilityObject.flavor_text_entries.find(
+      (item: any) => item.language.name === "en"
+    ).flavor_text;
+  } catch (error) {}
+  try {
     abilitynameC = pokemonAbilityObject.names.find(
       (item: any) => item.language.name === "zh-Hant"
     ).name;
+  } catch (error) {}
+  try {
     abilityeffectC = pokemonAbilityObject.flavor_text_entries.find(
       (item: any) => item.language.name === "zh-Hant"
     ).flavor_text;
-  } catch (error) {
-    throw new Error("please enter a valid Ability name!");
-  }
+  } catch (error) {}
   return (
     <>
       <div className="font-bold text-center mx-auto text-2xl pc:text-3xl m-10">
@@ -42,7 +48,7 @@ export default async function PokemonAbilityPage({
       <div className="text-center mx-auto text-xl pc:text-xl mt-10">
         {abilityeffectC}
       </div>
-      <div className="text-justify mx-auto text-xl pc:text-xl mt-5 w-1/3">
+      <div className="text-justify mx-auto text-xl pc:text-xl mt-2 w-1/3">
         {abilityeffect}
       </div>
       <table className="border-2 text-center mx-auto text-xl pc:text-xl mt-5 w-fit">
