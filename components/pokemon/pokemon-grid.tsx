@@ -2,10 +2,10 @@
 import {
   MAXID
 } from "@/lib/pokeapi";
-import { PokemonCard } from "@/components/pokemon/pokemon-card";
+import { PokemonCard } from "@/components/Pokemon/pokemon-card";
 import { useState, useEffect } from "react";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Label } from "@/lib/label";
+import { Input } from "@/lib/input";
 
 type PokemonGridProps = {
   pokemonList: Object[];

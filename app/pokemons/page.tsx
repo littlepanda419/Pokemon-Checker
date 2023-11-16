@@ -1,4 +1,4 @@
-import { PokemonGrid } from "@/components/pokemon/pokemon-grid";
+import { PokemonGrid } from "@/components/Pokemon/pokemon-grid";
 import {
   getPokemonList,
   getSpecialFormPokemon,

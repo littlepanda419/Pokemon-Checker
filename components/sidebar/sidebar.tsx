@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { IconContext } from "react-icons";
-import { SideBarData } from "./sidebardata";
+import { SideBarData } from "@/components/Sidebar/sidebardata";
 
 export function SideBar() {
   const [sidebar, setSideBar] = useState(false);

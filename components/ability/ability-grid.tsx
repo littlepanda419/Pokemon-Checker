@@ -1,8 +1,8 @@
 "use client";
-import { AbilityCard } from "@/components/ability/ability-card";
+import { AbilityCard } from "@/components/Ability/ability-card";
 import { useState, useEffect } from "react";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Label } from "@/lib/label";
+import { Input } from "@/lib/input";
 
 type AbilityAbilityGridProps = {
   pokemonAbilitiesList: Object[];
