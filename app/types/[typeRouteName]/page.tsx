@@ -3,7 +3,7 @@ import {
   PokemonShowType,
   TypeAsAttacker,
   TypeAsDefender,
-} from "@/components/types/type-show";
+} from "@/components/Type/type-show";
 // localhost:3000/types/normal
 
 export default async function PokemonTypePage({
