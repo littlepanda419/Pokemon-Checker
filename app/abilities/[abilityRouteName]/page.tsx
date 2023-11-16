@@ -34,7 +34,7 @@ export default async function PokemonAbilityPage({
       <div className="text-center mx-auto text-xl pc:text-xl mt-10">
         {abilityeffectC}
       </div>
-      <div className="text-center mx-auto text-xl pc:text-xl mt-5 w-1/2">
+      <div className="text-left mx-auto text-xl pc:text-xl mt-5 w-1/2">
         {abilityeffect}
       </div>
       <table className="border-2 text-center mx-auto text-xl pc:text-xl mt-5 w-fit">
@@ -42,8 +42,8 @@ export default async function PokemonAbilityPage({
         pokemons with this ability:</caption>
         <thead>
           <tr>
-            <th className="border-2">Pokemon name</th>
-            <th className="border-2">Hidden ability?</th>
+            <th className="border-2 p-2">Pokemon name</th>
+            <th className="border-2 p-2">Is hidden ability?</th>
           </tr>
         </thead>
         <tbody>
@@ -51,8 +51,8 @@ export default async function PokemonAbilityPage({
             (pokemonAbility: any, index: number) => {
               return (
                 <tr key={pokemonAbility.pokemon.name}>
-                  <th className="border-2">
-                    <Link href={`../pokemon/${pokemonAbility.pokemon.name}`}>
+                  <th className="border-2  px-2 py-1">
+                    <Link href={`../pokemons/${pokemonAbility.pokemon.name}`}>
                       {pokemonAbility.pokemon.name}
                     </Link>
                   </th>
