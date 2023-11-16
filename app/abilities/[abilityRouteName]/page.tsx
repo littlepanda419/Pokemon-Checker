@@ -14,16 +14,24 @@ export default async function PokemonAbilityPage({
     throw new Error("please enter a valid Ability name!");
   }
   //console.log(pokemonAbilityObject)
-  const abilityname: string = pokemonAbilityObject.name;
-  const abilitynameC: string = pokemonAbilityObject.names.find(
-    (item: any) => item.language.name === "zh-Hant",
-  ).name;
-  const abilityeffect: string = pokemonAbilityObject.effect_entries.find(
-    (item: any) => item.language.name === "en",
-  ).effect;
-  const abilityeffectC: string = pokemonAbilityObject.flavor_text_entries.find(
-    (item: any) => item.language.name === "zh-Hant",
-  ).flavor_text;
+  let abilityname: string = "";
+  let abilityeffect: string = "";
+  let abilitynameC: string = "";
+  let abilityeffectC: string = "";
+  try {
+    abilityname = pokemonAbilityObject.name;
+    abilityeffect = pokemonAbilityObject.effect_entries.find(
+      (item: any) => item.language.name === "en"
+    ).effect;
+    abilitynameC = pokemonAbilityObject.names.find(
+      (item: any) => item.language.name === "zh-Hant"
+    ).name;
+    abilityeffectC = pokemonAbilityObject.flavor_text_entries.find(
+      (item: any) => item.language.name === "zh-Hant"
+    ).flavor_text;
+  } catch (error) {
+    throw new Error("please enter a valid Ability name!");
+  }
   return (
     <>
       <div className="font-bold text-center mx-auto text-2xl pc:text-3xl m-10">
@@ -34,7 +42,7 @@ export default async function PokemonAbilityPage({
       <div className="text-center mx-auto text-xl pc:text-xl mt-10">
         {abilityeffectC}
       </div>
-      <div className="text-left mx-auto text-xl pc:text-xl mt-5 w-1/2">
+      <div className="text-justify mx-auto text-xl pc:text-xl mt-5 w-1/3">
         {abilityeffect}
       </div>
       <table className="border-2 text-center mx-auto text-xl pc:text-xl mt-5 w-fit">
@@ -60,7 +68,7 @@ export default async function PokemonAbilityPage({
                   </th>
                 </tr>
               );
-            },
+            }
           )}
         </tbody>
       </table>

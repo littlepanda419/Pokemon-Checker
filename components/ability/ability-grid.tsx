@@ -18,7 +18,7 @@ export function AbilityGrid({
   pokemonchineseabilitieslist,
 }: AbilityAbilityGridProps) {
   const [searchText, setSearchText] = useState("");
-  const [filteredPokemonList, setFilteredPokemonList] = useState<
+  const [filteredAbilityList, setFilteredAbilityList] = useState<
     combinedList[]
   >([]);
   let combinedlist: combinedList[] = [];
@@ -35,16 +35,16 @@ export function AbilityGrid({
   });
 
   const searchFilter = (combinedlist: combinedList[]) => {
-    //console.log(combinedlist);
+    console.log(combinedlist);
     return combinedlist.filter(
       (ability: combinedList) =>
         ability.name.toLowerCase().includes(searchText.toLowerCase()) ||
-        ability.nameC.includes(searchText),
+        ability.nameC.includes(searchText)
     );
   };
 
   useEffect(() => {
-    setFilteredPokemonList(searchFilter(combinedlist));
+    setFilteredAbilityList(searchFilter(combinedlist));
   }, [searchText]);
   function makeSearch(search: string) {
     setSearchText(search);
@@ -72,7 +72,7 @@ export function AbilityGrid({
       <div className="mx-5 border-t border-white flex-auto my-2 pad:mx-10 pc:mx-20"></div>
 
       <div className="mx-5 grid text-center grid-cols-2 pad:grid-cols-3 pad:mx-10 pc:mx-20">
-        {filteredPokemonList.map((ability: any, index: number) => {
+        {filteredAbilityList.map((ability: any, index: number) => {
           return (
             <AbilityCard
               name={ability.name}
