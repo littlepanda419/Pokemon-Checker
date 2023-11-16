@@ -29,7 +29,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - [x] Check types of pokemon 
 - [x] Check the weakness of a dual-type pokemone
 - [x] Sidbar to switch between features
+- [x] Abilities info
  ### Working On Features
 - [ ] Moves info
 - [ ] Items info
-- [ ] Abilities info
+- [ ] Language option for whole site, not just some pages.
