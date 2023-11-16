@@ -38,7 +38,7 @@ export default async function PokemonTypePage({
   }
   const pokemonTypeObject = await getPokemonType(typeRouteName);
   const pokemonTypeChineseName = pokemonTypeObject.names.find(
-    (nameInLang: any) => nameInLang.language.name === "zh-Hant"
+    (nameInLang: any) => nameInLang.language.name === "zh-Hant",
   ).name;
   return (
     <>

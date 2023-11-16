@@ -119,7 +119,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       doubleDamageto.name.slice(1)}
                   </Link>
                 </th>
-              )
+              ),
             )}
             {pokemonTypeObject.damage_relations.half_damage_to.map(
               (halfDamageto: any) => (
@@ -133,7 +133,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       halfDamageto.name.slice(1)}
                   </Link>
                 </th>
-              )
+              ),
             )}
             {pokemonTypeObject.damage_relations.no_damage_to.map(
               (noDamageto: any) => (
@@ -147,7 +147,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       noDamageto.name.slice(1)}
                   </Link>
                 </th>
-              )
+              ),
             )}
           </tr>
         </thead>
@@ -166,7 +166,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   2x
                 </td>
-              )
+              ),
             )}
 
             {pokemonTypeObject.damage_relations.half_damage_to.map(
@@ -182,7 +182,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   1/2x
                 </td>
-              )
+              ),
             )}
 
             {pokemonTypeObject.damage_relations.no_damage_to.map(
@@ -198,7 +198,7 @@ export function TypeAsAttacker({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   0x
                 </td>
-              )
+              ),
             )}
           </tr>
         </tbody>
@@ -229,7 +229,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       doubleDamagefrom.name.slice(1)}
                   </Link>
                 </th>
-              )
+              ),
             )}
             {pokemonTypeObject.damage_relations.half_damage_from.map(
               (halfDamagefrom: any) => (
@@ -243,7 +243,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       halfDamagefrom.name.slice(1)}
                   </Link>
                 </th>
-              )
+              ),
             )}
             {pokemonTypeObject.damage_relations.no_damage_from.map(
               (noDamagefrom: any) => (
@@ -257,7 +257,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                       noDamagefrom.name.slice(1)}
                   </Link>
                 </th>
-              )
+              ),
             )}
           </tr>
         </thead>
@@ -276,7 +276,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   2x
                 </td>
-              )
+              ),
             )}
 
             {pokemonTypeObject.damage_relations.half_damage_from.map(
@@ -292,7 +292,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   1/2x
                 </td>
-              )
+              ),
             )}
 
             {pokemonTypeObject.damage_relations.no_damage_from.map(
@@ -308,7 +308,7 @@ export function TypeAsDefender({ pokemonTypeObject }: PokemonTypePropsFinder) {
                 >
                   0x
                 </td>
-              )
+              ),
             )}
           </tr>
         </tbody>

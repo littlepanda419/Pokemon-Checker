@@ -1,7 +1,5 @@
 "use client";
-import {
-  MAXID
-} from "@/lib/pokeapi";
+import { MAXID } from "@/lib/pokeapi";
 import { PokemonCard } from "@/components/Pokemon/pokemon-card";
 import { useState, useEffect } from "react";
 import { Label } from "@/lib/label";
@@ -56,7 +54,7 @@ export function PokemonGrid({
       (pokemon: combinedList) =>
         pokemon.name.toLowerCase().includes(searchText.toLowerCase()) ||
         pokemon.nameC.includes(searchText) ||
-        pokemon.id.includes(searchText)
+        pokemon.id.includes(searchText),
     );
   };
   useEffect(() => {
@@ -148,7 +146,7 @@ export function PokemonGrid({
 
 function throttle<T extends (...args: any[]) => void>(
   func: T,
-  delay: number
+  delay: number,
 ): (...args: Parameters<T>) => void {
   let isThrottled = false;
   let lastArgs: Parameters<T> | null = null;

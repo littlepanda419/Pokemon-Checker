@@ -6,7 +6,9 @@ export default function Home() {
       <div className="text-center m-10 text-5xl">Welcome! </div>
       <div className="text-center m-10 text-3xl">
         go to &nbsp;
-        <Link href="/pokemon" className="underline">pokemon</Link>
+        <Link href="/pokemon" className="underline">
+          pokemon
+        </Link>
       </div>
     </>
   );

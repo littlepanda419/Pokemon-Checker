@@ -2,7 +2,7 @@ import {
   getPokemon,
   getPokemonChineseName,
   getPokemonName,
-  MAXID
+  MAXID,
 } from "@/lib/pokeapi";
 import { PokemonImage } from "@/components/Pokemon/PokemonPage/pokemon-image";
 import { PokemonStat } from "@/components/Pokemon/PokemonPage/pokemon-stat";
@@ -17,7 +17,6 @@ import {
 } from "@/components/Pokemon/PokemonPage/pokemon-move-show";
 import Link from "next/link";
 // http://localhost:3000/Pokemon/pikachu
-
 
 function getTwoID(id: number) {
   let previousid: number = 0;
@@ -40,7 +39,7 @@ export default async function PokemonPage({
   params: { pokemonRouteName: string };
 }) {
   const { pokemonRouteName } = params; // pikachu
-  let pokemonObject:any;
+  let pokemonObject: any;
 
   try {
     pokemonObject = await getPokemon(pokemonRouteName); // get the API data for pikachu
@@ -53,7 +52,7 @@ export default async function PokemonPage({
   const pokemonpreviousname = await getPokemonName(previousid);
   const pokemonnextname = await getPokemonName(nextid);
   const pokemonchinesename = await getPokemonChineseName(
-    pokemonObject.species.url
+    pokemonObject.species.url,
   );
   return (
     <>
@@ -73,7 +72,7 @@ export default async function PokemonPage({
             key={pokemonname}
           >
             {pokemonObject.id}. {pokemonchinesename}
-            <br/>
+            <br />
             {pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
           </Link>
         </div>

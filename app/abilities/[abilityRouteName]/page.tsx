@@ -16,13 +16,13 @@ export default async function PokemonAbilityPage({
   //console.log(pokemonAbilityObject)
   const abilityname: string = pokemonAbilityObject.name;
   const abilitynameC: string = pokemonAbilityObject.names.find(
-    (item: any) => item.language.name === "zh-Hant"
+    (item: any) => item.language.name === "zh-Hant",
   ).name;
   const abilityeffect: string = pokemonAbilityObject.effect_entries.find(
-    (item: any) => item.language.name === "en"
+    (item: any) => item.language.name === "en",
   ).effect;
   const abilityeffectC: string = pokemonAbilityObject.flavor_text_entries.find(
-    (item: any) => item.language.name === "zh-Hant"
+    (item: any) => item.language.name === "zh-Hant",
   ).flavor_text;
   return (
     <>
@@ -38,8 +38,7 @@ export default async function PokemonAbilityPage({
         {abilityeffect}
       </div>
       <table className="border-2 text-center mx-auto text-xl pc:text-xl mt-5 w-fit">
-        <caption>
-        pokemons with this ability:</caption>
+        <caption>pokemons with this ability:</caption>
         <thead>
           <tr>
             <th className="border-2 p-2">Pokemon name</th>
@@ -61,7 +60,7 @@ export default async function PokemonAbilityPage({
                   </th>
                 </tr>
               );
-            }
+            },
           )}
         </tbody>
       </table>

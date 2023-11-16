@@ -36,4 +36,3 @@ export function PokemonCard({ name, nameC, id }: PokemonCardProps) {
     </Link>
   );
 }
-

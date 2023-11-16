@@ -196,7 +196,7 @@ export async function TypeFinalCheck(type1: string, type2: string) {
     type2Obj.damage_relations.double_damage_from.map(
       (doubleDamagefrom: any) => {
         TypeMultiDictionary[doubleDamagefrom.name].multiplier *= 2;
-      }
+      },
     );
 
     type2Obj.damage_relations.half_damage_from.map((halfDamagefrom: any) => {

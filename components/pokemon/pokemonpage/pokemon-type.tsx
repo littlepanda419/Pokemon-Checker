@@ -16,7 +16,12 @@ export function PokemonType({ pokemonObject }: PokemonStatProps) {
             key={`$type${typeName}`}
             className="inline-flex mx-2 self-center p-1 rounded-full min-w-[95px] max-w-fit justify-center"
           >
-            <Link href={"../types/" + typeName} className="font-bold text-center">{typeName}</Link>
+            <Link
+              href={"../types/" + typeName}
+              className="font-bold text-center"
+            >
+              {typeName}
+            </Link>
           </div>
         );
       })}

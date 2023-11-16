@@ -9,37 +9,37 @@ type AbilityAbilityGridProps = {
   pokemonchineseabilitieslist: Object[];
 };
 type combinedList = {
-    name: string;
-    nameC: string;
-    url: string;
-  };
+  name: string;
+  nameC: string;
+  url: string;
+};
 export function AbilityGrid({
   pokemonAbilitiesList,
   pokemonchineseabilitieslist,
 }: AbilityAbilityGridProps) {
   const [searchText, setSearchText] = useState("");
   const [filteredPokemonList, setFilteredPokemonList] = useState<
-  combinedList[]
->([]);
-let combinedlist: combinedList[] = [];
+    combinedList[]
+  >([]);
+  let combinedlist: combinedList[] = [];
 
-combinedlist = pokemonAbilitiesList.map((pokemon: any) => {
-  return {
-    name: pokemon.name,
-    nameC: "",
-    url: pokemon.url,
-  };
-});
-pokemonchineseabilitieslist.map((abilitiesC: any, index: number) => {
-  combinedlist[index].nameC = abilitiesC.name;
-});
+  combinedlist = pokemonAbilitiesList.map((pokemon: any) => {
+    return {
+      name: pokemon.name,
+      nameC: "",
+      url: pokemon.url,
+    };
+  });
+  pokemonchineseabilitieslist.map((abilitiesC: any, index: number) => {
+    combinedlist[index].nameC = abilitiesC.name;
+  });
 
   const searchFilter = (combinedlist: combinedList[]) => {
     //console.log(combinedlist);
     return combinedlist.filter(
       (ability: combinedList) =>
         ability.name.toLowerCase().includes(searchText.toLowerCase()) ||
-        ability.nameC.includes(searchText)
+        ability.nameC.includes(searchText),
     );
   };
 

@@ -8,30 +8,28 @@ export const metadata = {
   title: "Poke Checker Made by Panda",
 };
 
-type RootLayoutProps ={
+type RootLayoutProps = {
   children: ReactNode;
 };
 
-export default function RootLayout({
-  children,
-}: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`mx-[2%] my-[2%] ${inter.className}`}>
-          <div className="inline-flex w-full justify-between align-middle">
-            <div className="w-0 h-0">
-              <SideBar/>
-            </div>
-            <Link
-              href="/"
-              className="text-2xl font-bold border-4 rounded-full w-fit mx-auto text-center text-yellow-400 border-blue-600 p-2  
-              pad:text-3xl pc:text-4xl pad:p-3"
-            >
-              Pokemon Checker
-            </Link>
+        <div className="inline-flex w-full justify-between align-middle">
+          <div className="w-0 h-0">
+            <SideBar />
           </div>
-          {children}
-        </body>
+          <Link
+            href="/"
+            className="text-2xl font-bold border-4 rounded-full w-fit mx-auto text-center text-yellow-400 border-blue-600 p-2  
+              pad:text-3xl pc:text-4xl pad:p-3"
+          >
+            Pokemon Checker
+          </Link>
+        </div>
+        {children}
+      </body>
     </html>
   );
 }

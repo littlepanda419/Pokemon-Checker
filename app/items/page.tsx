@@ -1,10 +1,7 @@
-
-
 export default async function PokemonItemsPage({}: {}) {
-    return (
-      <>
-        <div>WIP...</div>
-      </>
-    );
-  }
-  
+  return (
+    <>
+      <div>WIP...</div>
+    </>
+  );
+}

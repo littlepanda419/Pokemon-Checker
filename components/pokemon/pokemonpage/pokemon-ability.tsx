@@ -28,9 +28,7 @@ export function PokemonAbility({ pokemonObject }: PokemonStatProps) {
                     {abilityOBj.ability.name}
                   </Link>
                 </th>
-                <th className="border-2">
-                  {abilityOBj.is_hidden ? "o" : "x"}
-                </th>
+                <th className="border-2">{abilityOBj.is_hidden ? "o" : "x"}</th>
               </tr>
             );
           })}

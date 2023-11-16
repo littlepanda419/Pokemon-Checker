@@ -94,41 +94,36 @@ export default function PokemonDualTypePage() {
           Check
         </button>
       </div>
-        <div className="text-center mx-auto w-full pad:w-1/2 ">
-          <table className="w-3/4 mx-auto text-xl ">
-            <caption className="text-xl pad:text-2xl my-2" id="Type1&Typ2show">
-              Choose Type1 and Type2, click the Check button.
-            </caption>
-            <tbody>
-              <tr>
-                <th key="typeTH1">Type</th>
-                <th key="typeTH2">Multiplier</th>
-              </tr>
-              {allTypes.map((type, index) => (
-                <tr key={type + index} className="text-xl border-2">
+      <div className="text-center mx-auto w-full pad:w-1/2 ">
+        <table className="w-3/4 mx-auto text-xl ">
+          <caption className="text-xl pad:text-2xl my-2" id="Type1&Typ2show">
+            Choose Type1 and Type2, click the Check button.
+          </caption>
+          <tbody>
+            <tr>
+              <th key="typeTH1">Type</th>
+              <th key="typeTH2">Multiplier</th>
+            </tr>
+            {allTypes.map((type, index) => (
+              <tr key={type + index} className="text-xl border-2">
+                <td key={"type" + type + index} id={"type" + type} className="">
+                  {type.charAt(0).toUpperCase() + type.slice(1)}
+                </td>
+                {onetime.map((e) => (
                   <td
-                    key={"type" + type + index}
-                    id={"type" + type}
-                    className=""
+                    id={type + "dmgdata"}
+                    key={type + "dmgdata"}
+                    data-label={type.charAt(0).toUpperCase() + type.slice(1)}
+                    className="text-xl border-2"
                   >
-                    {type.charAt(0).toUpperCase() + type.slice(1)}
+                    -
                   </td>
-                  {onetime.map((e) => (
-                    <td
-                      id={type + "dmgdata"}
-                      key={type + "dmgdata"}
-                      data-label={type.charAt(0).toUpperCase() + type.slice(1)}
-                      className="text-xl border-2"
-                    >
-                      -
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </>
-      
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }

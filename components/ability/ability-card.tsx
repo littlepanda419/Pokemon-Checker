@@ -1,14 +1,11 @@
 import Link from "next/link";
 
-
 type PokemonAbilityGridProps = {
-    name:string
-    nameC:string
-    
-  };
+  name: string;
+  nameC: string;
+};
 
-
-export function AbilityCard({ name, nameC}: PokemonAbilityGridProps) {
+export function AbilityCard({ name, nameC }: PokemonAbilityGridProps) {
   return (
     <Link
       href={"/abilities/" + name}
@@ -34,4 +31,3 @@ export function AbilityCard({ name, nameC}: PokemonAbilityGridProps) {
     </Link>
   );
 }
-

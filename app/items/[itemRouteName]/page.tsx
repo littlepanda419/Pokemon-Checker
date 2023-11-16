@@ -1,8 +1,7 @@
-export default  function PokemonItemsPage({}: {}) {
-    return (
-      <>
-        <div>WIP...</div>
-      </>
-    );
-  }
-  
+export default function PokemonItemsPage({}: {}) {
+  return (
+    <>
+      <div>WIP...</div>
+    </>
+  );
+}
