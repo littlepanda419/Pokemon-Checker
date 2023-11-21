@@ -45,12 +45,6 @@ export async function getPokemon(name: string) {
   return data;
 }
 
-export async function getPokemonMove(url: string) {
-  // https://pokeapi.co/api/v2/move/550/
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-}
 
 export async function getPokemonChineseName(url: string) {
   //https://pokeapi.co/api/v2/pokemon-species/1/
@@ -84,6 +78,18 @@ export async function getPokemonAbilitiesList() {
 
 export async function getPokemonAbilities(name: string) {
   const response = await fetch(POKEMON_API + "ability/" + name);
+  const data = await response.json();
+  return data;
+}
+
+export async function getPokemonMovesList() {
+  const response = await fetch(POKEMON_API + "move?offset=0&limit=9999");
+  const data = await response.json();
+  return data.results;
+}
+
+export async function getPokemonMoves(name: string) {
+  const response = await fetch(POKEMON_API + "move/" + name);
   const data = await response.json();
   return data;
 }

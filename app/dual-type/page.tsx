@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { TypeFinalCheck } from "@/components/types/dualtype-show";
+import { TypeFinalCheck } from "@/components/Type/dualtype-show";
 const allTypes: string[] = [
   "normal",
   "fighting",

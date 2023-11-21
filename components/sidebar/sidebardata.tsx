@@ -13,8 +13,8 @@ export const SideBarData = [
       "flex justify-start place-items-center px-10 pad:px-6 pc:px-10 py-2 h-[50px] text-xl ",
   },
   {
-    title: "Pokemon",
-    path: "/pokemon",
+    title: "Pokemons",
+    path: "/pokemons",
     icon: <TbIcons.TbPokeball />,
     clasName:
       "flex justify-start place-items-center px-10 pad:px-6 pc:px-10 py-2 h-[50px] text-xl ",

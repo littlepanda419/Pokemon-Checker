@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import {
   ChineseNature,
   EnglishNature,
-} from "@/components/nature/nature-language";
+} from "@/components/Nature/nature-language";
 
 import * as MdIcons from "react-icons/md";
 import { IconContext } from "react-icons";

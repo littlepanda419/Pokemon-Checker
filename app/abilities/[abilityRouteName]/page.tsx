@@ -45,11 +45,11 @@ export default async function PokemonAbilityPage({
         <br />
         {abilitynameC}
       </div>
+      <div className="text-justify mx-auto text-xl pc:text-xl mt-2 w-1/3">
+        {abilityeffect}
       <div className="text-center mx-auto text-xl pc:text-xl mt-10">
         {abilityeffectC}
       </div>
-      <div className="text-justify mx-auto text-xl pc:text-xl mt-2 w-1/3">
-        {abilityeffect}
       </div>
       <table className="border-2 text-center mx-auto text-xl pc:text-xl mt-5 w-fit">
         <caption>pokemons with this ability:</caption>
