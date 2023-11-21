@@ -8,7 +8,7 @@ import {
 } from "@tanstack/react-table";
 import React, { useState, useMemo, useEffect } from "react";
 import { useBetween } from "use-between";
-import useColumns from "@/components/table/movecolumn";
+import useColumns from "@/components/Table/movecolumn";
 type PokemonStatProps = {
   pokemonObject: any;
 };

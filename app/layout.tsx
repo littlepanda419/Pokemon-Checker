@@ -2,7 +2,7 @@ import "./globals.css";
 import { type ReactNode } from "react";
 import Link from "next/link";
 import { inter } from "@/types/fonts";
-import { SideBar } from "@/components/sidebar/sidebar";
+import { SideBar } from "@/components/Sidebar/sidebar";
 
 export const metadata = {
   title: "Poke Checker Made by Panda",
