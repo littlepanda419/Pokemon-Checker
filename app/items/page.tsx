@@ -5,3 +5,4 @@ export default async function PokemonItemsPage({}: {}) {
     </>
   );
 }
+//item-category

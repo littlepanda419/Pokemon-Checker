@@ -12,7 +12,7 @@ type PokemonCardProps = {
 export function PokemonCard({ name, nameC, id }: PokemonCardProps) {
   return (
     <Link
-      href={"/pokemon/" + name}
+      href={"/pokemons/" + name}
       className="rounded-lg border-2 border-stone-200  shadow-[0px_2px_1px_0px_rgba(255,255,128,0.8)]
                   m-3 p-2 
                   pad:m-3 pad:p-3 

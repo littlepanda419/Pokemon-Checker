@@ -5,3 +5,5 @@ export default function PokemonItemsPage({}: {}) {
     </>
   );
 }
+
+//item-category
