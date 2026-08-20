@@ -30,12 +30,12 @@ export default async function PokemonAbilityPage({
   } catch (error) {}
   try {
     abilitynameC = pokemonAbilityObject.names.find(
-      (item: any) => item.language.name === "zh-Hant"
+      (item: any) => item.language.name.toLowerCase() === "zh-hant"
     ).name;
   } catch (error) {}
   try {
     abilityeffectC = pokemonAbilityObject.flavor_text_entries.find(
-      (item: any) => item.language.name === "zh-Hant"
+      (item: any) => item.language.name.toLowerCase() === "zh-hant"
     ).flavor_text;
   } catch (error) {}
   return (

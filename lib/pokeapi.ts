@@ -51,7 +51,7 @@ export async function getPokemonChineseName(url: string) {
   const response = await fetch(url);
   const data = await response.json();
   const name = data.names.find(
-    (item: any) => item.language.name === "zh-Hant",
+    (item: any) => item.language.name.toLowerCase() === "zh-hant",
   ).name;
   return name;
 }

@@ -36,7 +36,7 @@ export default async function PokemonMovePage({
   } catch (error) {}
   try {
     moveeffectC = pokemonMoveObject.flavor_text_entries.find(
-      (item: any) => item.language.name === "zh-Hant"
+      (item: any) => item.language.name.toLowerCase() === "zh-hant"
     ).flavor_text;
   } catch (error) {}
   try {
@@ -46,7 +46,7 @@ export default async function PokemonMovePage({
   } catch (error) {}
   try {
     movenameC = pokemonMoveObject.names.find(
-      (item: any) => item.language.name === "zh-Hant"
+      (item: any) => item.language.name.toLowerCase() === "zh-hant"
     ).name;
   } catch (error) {}
   try {
